@@ -13,114 +13,107 @@
     <!-- Preload key assets -->
     <link rel="preload" href="assets/images/logo.svg" as="image">
 </head>
-<body>
-    <div class="landing-page">
-        <!-- Header -->
-        <header class="header">
-            <div class="container">
-                <div class="logo-section">
-                    <img src="assets/images/logo.svg" alt="Personal Tax Analyzer" class="logo">
-                    <h1>Personal Tax Analyzer</h1>
-                </div>
-                <nav class="nav">
-                    <a href="sources.html">Sources</a>
-                    <a href="technical.html">How It Works</a>
-                    <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>
-                </nav>
+<body class="app-layout">
+    <!-- Left Navigation -->
+    <nav class="left-sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/images/logo.svg" alt="Eagle Logo" class="logo-icon">
+            <div class="logo-text">Personal Tax Analyzer</div>
+        </div>
+
+        <div class="sidebar-nav">
+            <a href="index.html" class="sidebar-nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Home</span>
+            </a>
+            <a href="app.html" class="sidebar-nav-item">
+                <span class="nav-icon">📄</span>
+                <span class="nav-text">Upload 1040</span>
+            </a>
+            <a href="sources.html" class="sidebar-nav-item">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">Data Sources</span>
+            </a>
+            <a href="technical.html" class="sidebar-nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-text">How It Works</span>
+            </a>
+            <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank" class="sidebar-nav-item">
+                <span class="nav-icon">💻</span>
+                <span class="nav-text">GitHub</span>
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-stat">
+                <div class="stat-label">FY 2024 Budget</div>
+                <div class="stat-value">$6.8T</div>
             </div>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h2>See Where Your Tax Dollars Go</h2>
-                <p class="subtitle">Upload your Form 1040 and visualize your personal contribution to federal spending</p>
-                <div class="privacy-banner">
-                    <span class="icon">🔒</span>
-                    <strong>100% Private:</strong> All processing happens in your browser. No data is uploaded or stored on any server.
-                </div>
-                <a href="app.html" class="cta-button">Upload Your 1040</a>
+            <div class="sidebar-stat">
+                <div class="stat-label">Years Available</div>
+                <div class="stat-value">2019-2024</div>
             </div>
-        </section>
 
-        <!-- Instructions Section -->
-        <section class="instructions">
-            <div class="container">
-                <h3>How to Get Your Form 1040</h3>
-
-                <div class="instruction-cards">
-                    <div class="card">
-                        <div class="card-number">1</div>
-                        <h4>Filed Online</h4>
-                        <p>If you filed with TurboTax, H&R Block, or another online service, log into your account and download your completed Form 1040 PDF.</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-number">2</div>
-                        <h4>Filed with a CPA</h4>
-                        <p>Contact your tax preparer and request a copy of your filed Form 1040. Most CPAs provide this digitally.</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-number">3</div>
-                        <h4>Request from IRS</h4>
-                        <p>Order a free transcript at <a href="https://www.irs.gov/individuals/get-transcript" target="_blank">irs.gov/individuals/get-transcript</a> or call 1-800-908-9946.</p>
-                    </div>
-                </div>
-
-                <div class="fica-explanation">
-                    <h4>You'll Also Need Your W-2</h4>
-                    <p>To see your total tax contribution including Social Security and Medicare taxes (FICA), you'll need:</p>
-                    <ul>
-                        <li><strong>Box 4:</strong> Social Security tax withheld</li>
-                        <li><strong>Box 6:</strong> Medicare tax withheld</li>
-                    </ul>
-                    <p class="note">Don't have your W-2? No problem! You can skip this and just see your federal income tax breakdown.</p>
+            <div class="sidebar-privacy">
+                <div class="privacy-icon">🔒</div>
+                <div class="privacy-text">
+                    <strong>100% Private</strong>
+                    <p>All processing in your browser. Zero uploads.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- Features Section -->
-        <section class="features">
-            <div class="container">
-                <h3>What You'll See</h3>
-                <div class="feature-grid">
-                    <div class="feature">
-                        <span class="feature-icon">📊</span>
-                        <h4>Interactive Visualization</h4>
-                        <p>Explore a beautiful Sankey diagram showing exactly how your tax dollars flow to 10 major spending categories</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">🔍</span>
-                        <h4>Detailed Breakdown</h4>
-                        <p>Click to expand categories and see subcategories with specific programs and dollar amounts</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">📈</span>
-                        <h4>National Context</h4>
-                        <p>Compare your tax contribution to the national average and see where you stand</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">💾</span>
-                        <h4>Export & Share</h4>
-                        <p>Download your breakdown as an image or save the data to reload later</p>
-                    </div>
+    <!-- Main Content Area -->
+    <main class="main-area">
+        <div class="content-wrapper">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="hero-title">Where Do Your Tax Dollars Go?</h1>
+                <p class="hero-subtitle">Upload your Form 1040 and see an interactive breakdown of federal spending based on your personal tax contribution.</p>
+                <a href="app.html" class="btn-primary-large">Upload Your Form 1040</a>
+            </section>
+
+            <!-- Info Grid -->
+            <section class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🔒</div>
+                    <h3 class="info-title">100% Private</h3>
+                    <p class="info-text">All processing happens in your browser. Your tax return never leaves your device.</p>
                 </div>
-            </div>
-        </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <p>Data sourced from official U.S. government publications: OMB, CBO, Treasury Department, IRS</p>
-                <p>
-                    <a href="sources.html">View All Sources</a> |
-                    <a href="technical.html">Technical Details</a> |
-                    <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>
-                </p>
-                <p class="copyright">Open source project. No affiliation with any government agency.</p>
-            </div>
-        </footer>
-    </div>
+                <div class="info-card">
+                    <div class="info-icon">📊</div>
+                    <h3 class="info-title">Interactive Visualization</h3>
+                    <p class="info-text">Explore a dynamic Sankey diagram with 10 major categories and 67 subcategories.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🇺🇸</div>
+                    <h3 class="info-title">Official Data</h3>
+                    <p class="info-text">Budget data sourced from OMB, Congressional Budget Office, and U.S. Treasury.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📈</div>
+                    <h3 class="info-title">National Comparison</h3>
+                    <p class="info-text">See how your tax contribution compares to the national average taxpayer.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">💾</div>
+                    <h3 class="info-title">Export & Save</h3>
+                    <p class="info-text">Download your breakdown as JSON or generate a PNG image to share.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📅</div>
+                    <h3 class="info-title">Historical Data</h3>
+                    <p class="info-text">Analyze federal spending trends across tax years 2019 through 2024.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
 </body>
 </html>

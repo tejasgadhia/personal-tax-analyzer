@@ -4,208 +4,503 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interactive tax breakdown visualization">
-    <title>Tax Breakdown - Personal Tax Analyzer</title>
+    <title>Upload & Analyze - Personal Tax Analyzer</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/patriotic-theme.css">
     <link rel="stylesheet" href="css/sankey.css">
 </head>
-<body>
-    <div class="app-container">
-        <!-- Mobile Block Screen -->
-        <div class="mobile-block" id="mobileBlock">
-            <div class="mobile-message">
-                <h2>Desktop Only</h2>
-                <p>This application requires a minimum screen width of 1024px for the best visualization experience.</p>
-                <p>Please visit on a desktop or laptop computer.</p>
-            </div>
+<body class="app-layout">
+    <!-- Mobile Block Screen -->
+    <div class="mobile-block" id="mobileBlock">
+        <div class="mobile-message">
+            <h2>Desktop Only</h2>
+            <p>This application requires a minimum screen width of 1024px for the best visualization experience.</p>
+            <p>Please visit on a desktop or laptop computer.</p>
+        </div>
+    </div>
+
+    <!-- Left Navigation -->
+    <nav class="left-sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/images/logo.svg" alt="Eagle Logo" class="logo-icon">
+            <div class="logo-text">Personal Tax Analyzer</div>
         </div>
 
-        <!-- Main Application -->
-        <div class="app-content" id="appContent">
-            <!-- Header -->
-            <header class="app-header">
-                <div class="container">
-                    <div class="logo-section">
-                        <a href="index.html">
-                            <img src="assets/images/logo.svg" alt="Personal Tax Analyzer" class="logo">
-                        </a>
-                    </div>
-                    <div class="header-actions">
-                        <button id="clearDataBtn" class="btn-secondary">Clear Data</button>
-                        <nav class="nav">
-                            <a href="sources.html">Sources</a>
-                            <a href="technical.html">How It Works</a>
-                        </nav>
-                    </div>
+        <div class="sidebar-nav">
+            <a href="index.html" class="sidebar-nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Home</span>
+            </a>
+            <a href="app.html" class="sidebar-nav-item active">
+                <span class="nav-icon">📄</span>
+                <span class="nav-text">Upload 1040</span>
+            </a>
+            <a href="sources.html" class="sidebar-nav-item">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">Data Sources</span>
+            </a>
+            <a href="technical.html" class="sidebar-nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-text">How It Works</span>
+            </a>
+            <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank" class="sidebar-nav-item">
+                <span class="nav-icon">💻</span>
+                <span class="nav-text">GitHub</span>
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-stat">
+                <div class="stat-label">FY 2024 Budget</div>
+                <div class="stat-value">$6.8T</div>
+            </div>
+            <div class="sidebar-stat">
+                <div class="stat-label">Years Available</div>
+                <div class="stat-value">2019-2024</div>
+            </div>
+
+            <div class="sidebar-privacy">
+                <div class="privacy-icon">🔒</div>
+                <div class="privacy-text">
+                    <strong>100% Private</strong>
+                    <p>All processing in your browser. Zero uploads.</p>
                 </div>
-            </header>
+            </div>
+        </div>
+    </nav>
 
-            <!-- Upload Section -->
-            <section class="upload-section" id="uploadSection">
-                <div class="container">
-                    <h2>Upload Your Form 1040</h2>
-                    <p class="subtitle">All processing happens locally in your browser. No data leaves your device.</p>
+    <!-- Main Content Area -->
+    <main class="main-area">
+        <!-- Upload Section -->
+        <section class="view upload-view active" id="upload-view">
+            <div class="upload-container-wide">
+                <h1 class="page-title">Upload Your Form 1040</h1>
 
-                    <div class="upload-area" id="uploadArea">
-                        <div class="upload-icon">📄</div>
-                        <p class="upload-text">Drag & drop your Form 1040 PDF here</p>
-                        <p class="upload-subtext">or</p>
-                        <label for="fileInput" class="btn-primary">Choose File</label>
-                        <input type="file" id="fileInput" accept=".pdf" hidden>
+                <div class="upload-content">
+                    <div class="upload-left">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">📄</div>
+                            <p class="upload-text">Drag & drop your Form 1040 PDF here</p>
+                            <p class="upload-or">or</p>
+                            <label for="pdfFileInput" class="btn-upload">Choose File</label>
+                            <input type="file" id="pdfFileInput" accept=".pdf" hidden>
+                            <p class="upload-hint">Supports Form 1040, 1040-SR, 1040-NR (2019-2024)</p>
+                        </div>
+
+                        <div class="upload-divider">
+                            <span>OR</span>
+                        </div>
+
+                        <div class="load-saved">
+                            <p class="load-saved-title">Already analyzed your 1040?</p>
+                            <p class="load-saved-text">If you previously used this tool and your browser has saved data, you can reload it instantly.</p>
+                            <button id="loadSavedBtn" class="btn-secondary-outline" disabled>
+                                <span class="btn-icon">📂</span>
+                                Load Previously Saved Data
+                            </button>
+                            <p class="load-saved-hint">This loads data from your browser's local storage from a previous session.</p>
+                        </div>
+
+                        <div class="error-message" id="errorMessage" style="display: none;"></div>
                     </div>
 
-                    <div class="upload-options">
-                        <button id="loadFromFileBtn" class="btn-secondary">Load from Saved File</button>
-                        <input type="file" id="savedFileInput" accept=".json" hidden>
-                    </div>
+                    <div class="upload-right">
+                        <div class="instructions-card">
+                            <h3 class="instructions-title">How to Get Your Form 1040</h3>
+                            <p class="instructions-intro">You need a PDF copy of your filed Form 1040. Here's where to find it:</p>
 
-                    <div class="fica-form" id="ficaForm" style="display: none;">
-                        <h3>Add FICA Taxes (Optional)</h3>
-                        <p>Include Social Security and Medicare taxes from your W-2 for a complete picture</p>
+                            <div class="instruction-item">
+                                <div class="instruction-bullet"></div>
+                                <div class="instruction-content">
+                                    <h4>Filed Online with Tax Software</h4>
+                                    <p>If you used <a href="#" class="service-link" data-service="turbotax">TurboTax</a>, <a href="#" class="service-link" data-service="hrblock">H&R Block</a>, <a href="#" class="service-link" data-service="taxact">TaxAct</a>, or another online service, log into your account and download your Form 1040 PDF. Click a service name for exact steps.</p>
+                                    <p class="instruction-note">Most services keep your returns for 3-7 years.</p>
+                                </div>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="socialSecurityTax">Social Security Tax (W-2 Box 4)</label>
-                            <div class="input-wrapper">
-                                <span class="input-prefix">$</span>
-                                <input type="number" id="socialSecurityTax" placeholder="0.00" min="0" step="0.01">
+                            <div class="instruction-item">
+                                <div class="instruction-bullet"></div>
+                                <div class="instruction-content">
+                                    <h4>Filed with a CPA or Tax Preparer</h4>
+                                    <p>Email or call your tax professional and ask: "Can you send me a PDF copy of my [YEAR] Form 1040?" Most keep digital copies for all clients.</p>
+                                    <p class="instruction-note">If they don't have it, ask them to help you request an IRS transcript (see below).</p>
+                                </div>
+                            </div>
+
+                            <div class="instruction-item">
+                                <div class="instruction-bullet"></div>
+                                <div class="instruction-content">
+                                    <h4>Request from the IRS</h4>
+                                    <p>Don't have your 1040? The IRS will send you a free transcript. Go to <a href="https://www.irs.gov/individuals/get-transcript" target="_blank" rel="noopener">irs.gov/individuals/get-transcript</a> or call <strong>1-800-908-9946</strong>.</p>
+                                    <p class="instruction-note">Transcripts arrive by mail in 5-10 business days. You'll need your Social Security number and address on file.</p>
+                                </div>
+                            </div>
+
+                            <div class="fica-info">
+                                <h4>Optional: Add FICA Taxes Later</h4>
+                                <p>After you upload your 1040, you'll have the option to include Social Security and Medicare taxes (FICA) from your W-2 for a complete picture of your total tax contribution.</p>
+                                <ul>
+                                    <li><strong>W-2 Box 4:</strong> Social Security tax</li>
+                                    <li><strong>W-2 Box 6:</strong> Medicare tax</li>
+                                </ul>
+                                <p class="fica-note">Don't worry about this now—we'll guide you through it after your 1040 is uploaded.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <div class="form-group">
-                            <label for="medicareTax">Medicare Tax (W-2 Box 6)</label>
-                            <div class="input-wrapper">
-                                <span class="input-prefix">$</span>
-                                <input type="number" id="medicareTax" placeholder="0.00" min="0" step="0.01">
-                            </div>
-                        </div>
+        <!-- FICA Form Section -->
+        <section class="view fica-view" id="fica-view">
+            <div class="fica-container">
+                <h1 class="page-title">Add FICA Taxes (Optional)</h1>
+                <p class="page-subtitle">Include Social Security and Medicare taxes from your W-2 for a complete picture. Tax year: <span id="ficaYearDisplay">2024</span></p>
 
-                        <div class="form-total" id="ficaTotal">
-                            <strong>Total FICA:</strong> <span id="ficaTotalAmount">$0.00</span>
-                        </div>
-
-                        <div class="form-actions">
-                            <button id="calculateBtn" class="btn-primary">Calculate Breakdown</button>
-                            <button id="skipFicaBtn" class="btn-secondary">Skip - Income Tax Only</button>
+                <form id="ficaForm" class="fica-form-card">
+                    <div class="form-group">
+                        <label for="socialSecurityInput">Social Security Tax</label>
+                        <p class="form-help">From W-2 Box 4 (6.2% of wages up to $168,600 in 2024)</p>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="socialSecurityInput" name="socialSecurity" placeholder="0.00" min="0" step="0.01">
                         </div>
                     </div>
 
-                    <div class="error-message" id="errorMessage" style="display: none;"></div>
-                </div>
-            </section>
+                    <div class="form-group">
+                        <label for="medicareInput">Medicare Tax</label>
+                        <p class="form-help">From W-2 Box 6 (1.45% of all wages)</p>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="medicareInput" name="medicare" placeholder="0.00" min="0" step="0.01">
+                        </div>
+                    </div>
 
-            <!-- Results Section -->
-            <section class="results-section" id="resultsSection" style="display: none;">
-                <div class="container">
-                    <!-- Summary Header -->
-                    <div class="results-header">
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary-large">Calculate Breakdown</button>
+                        <button type="button" id="skipFicaBtn" class="btn-text">Skip - Income Tax Only</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="view results-view" id="results-view">
+            <div class="results-container">
+                <!-- Summary Header -->
+                <div class="results-header">
+                    <div class="header-left">
+                        <h1 class="results-title">Your <span id="summaryYear">2024</span> Tax Breakdown</h1>
                         <div class="tax-summary">
-                            <h2>Your <span id="taxYear">2024</span> Tax Breakdown</h2>
-                            <div class="tax-amounts">
-                                <div class="amount-item">
-                                    <span class="label">Federal Income Tax</span>
-                                    <span class="value" id="incomeTaxAmount">$0</span>
-                                </div>
-                                <div class="amount-item" id="ficaAmountDisplay" style="display: none;">
-                                    <span class="label">FICA (SS + Medicare)</span>
-                                    <span class="value" id="ficaTaxAmount">$0</span>
-                                </div>
-                                <div class="amount-item total">
-                                    <span class="label">Total Tax</span>
-                                    <span class="value" id="totalTaxAmount">$0</span>
-                                </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Federal Income Tax</span>
+                                <span class="summary-value" id="summaryIncomeTax">$0</span>
                             </div>
-                        </div>
-
-                        <!-- Controls -->
-                        <div class="results-controls">
-                            <button id="expandAllBtn" class="btn-secondary">Expand All</button>
-                            <button id="collapseAllBtn" class="btn-secondary">Collapse All</button>
-                            <button id="exportImageBtn" class="btn-primary">Export Image</button>
-                            <button id="exportDataBtn" class="btn-secondary">Export Data</button>
-                            <button id="resetBtn" class="btn-secondary">Start Over</button>
+                            <div class="summary-item">
+                                <span class="summary-label">FICA</span>
+                                <span class="summary-value" id="summaryFICA">$0</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span class="summary-label">Total</span>
+                                <span class="summary-value" id="summaryTotal">$0</span>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Visualization -->
-                    <div class="visualization-container">
-                        <div id="sankeyViz"></div>
-                    </div>
-
-                    <!-- National Comparison -->
-                    <div class="national-context" id="nationalContext">
-                        <h3>How You Compare</h3>
-                        <div class="comparison-grid">
-                            <div class="comparison-item">
-                                <span class="label">National Avg Federal Income Tax</span>
-                                <span class="value" id="avgIncomeTax">$0</span>
-                                <span class="difference" id="incomeTaxDiff"></span>
-                            </div>
-                            <div class="comparison-item">
-                                <span class="label">National Avg FICA</span>
-                                <span class="value" id="avgFica">$0</span>
-                                <span class="difference" id="ficaDiff"></span>
-                            </div>
-                        </div>
-                        <p class="sources-note">
-                            Data sources: <sup>[1]</sup> <sup>[2]</sup> <sup>[3]</sup>
-                            <a href="sources.html">View all citations</a>
-                        </p>
+                    <div class="header-right">
+                        <button id="startOverBtn" class="btn-secondary-small">Start Over</button>
                     </div>
                 </div>
-            </section>
-        </div>
 
-        <!-- Loading Modal -->
-        <div class="modal" id="loadingModal" style="display: none;">
-            <div class="modal-content">
-                <h3>Processing Your 1040</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+                <!-- Controls Bar -->
+                <div class="controls-bar">
+                    <div class="controls-right">
+                        <button id="exportJSONBtn" class="btn-control">
+                            <span class="btn-icon">💾</span>
+                            Export JSON
+                        </button>
+                        <button id="exportPNGBtn" class="btn-control-primary">
+                            <span class="btn-icon">📸</span>
+                            Export PNG
+                        </button>
+                    </div>
                 </div>
-                <p class="progress-text" id="progressText">Loading...</p>
-                <p class="progress-eta" id="progressEta"></p>
+
+                <!-- Visualization -->
+                <div class="visualization-container">
+                    <div id="sankeyDiagram"></div>
+                </div>
+
+                <!-- Category Breakdown Table -->
+                <div class="category-breakdown">
+                    <h3 class="breakdown-title">Category Breakdown</h3>
+                    <table class="category-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Percentage</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoryTableBody">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- National Comparison -->
+                <div class="national-comparison">
+                    <h3 class="comparison-title">How You Compare to National Averages</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <div class="comparison-label">Your Total Tax</div>
+                            <div class="comparison-value" id="comparisonUserTax">$0</div>
+                        </div>
+                        <div class="comparison-card">
+                            <div class="comparison-label">National Average</div>
+                            <div class="comparison-value" id="comparisonAvgTax">$0</div>
+                        </div>
+                        <div class="comparison-card">
+                            <div class="comparison-label">Your Percentile</div>
+                            <div class="comparison-value" id="comparisonPercentile">--</div>
+                        </div>
+                    </div>
+                    <p class="sources-note">
+                        Data sources: OMB Historical Tables, CBO, IRS Statistics of Income
+                        <a href="sources.html">View all citations →</a>
+                    </p>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <!-- Export Image Modal -->
-        <div class="modal" id="exportModal" style="display: none;">
-            <div class="modal-content large">
-                <div class="modal-header">
-                    <h3>Export Image</h3>
-                    <button class="modal-close" id="closeExportModal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="export-options">
-                        <h4>Customize Your Export</h4>
-                        <!-- Options will be added via JS -->
-                    </div>
-                    <div class="export-preview">
-                        <h4>Preview</h4>
-                        <canvas id="exportCanvas"></canvas>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="downloadImageBtn" class="btn-primary">Download PNG</button>
-                    <button id="cancelExportBtn" class="btn-secondary">Cancel</button>
+    <!-- Loading Modal -->
+    <div class="modal-overlay" id="loadingModal" style="display: none;">
+        <div class="modal-card">
+            <h3 class="modal-title">Processing</h3>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p class="progress-text" id="loadingMessage">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Category Detail Modal -->
+    <div class="modal-overlay" id="categoryDetailModal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="category-detail-title">Category Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="category-detail-list">
+                    <!-- Populated by JavaScript -->
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Service Instructions Modals -->
+
+    <!-- TurboTax Modal -->
+    <div class="modal-overlay service-modal" id="turbotaxModal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Download Your 1040 from TurboTax</h3>
+                <button class="modal-close" onclick="closeServiceModal('turbotaxModal')">&times;</button>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-steps">
+                    <div class="service-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Log into TurboTax</h4>
+                            <p>Go to <a href="https://myturbotax.intuit.com" target="_blank" rel="noopener">myturbotax.intuit.com</a> and sign in with your email and password.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Open "Tax Timeline" or "My Tax Returns"</h4>
+                            <p>Click on "Tax Timeline" or look for "My Documents" in the menu to see your past returns.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Select Your Tax Year</h4>
+                            <p>Choose the year you want to analyze (2019-2024).</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Download Form 1040 PDF</h4>
+                            <p>Look for a "Download" or "Print" button. Select "Form 1040" (or "Form 1040-SR") and download as PDF. Save it to your computer.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Upload Here</h4>
+                            <p>Come back to this page and drag the PDF into the upload area, or click "Choose File" to select it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="closeServiceModal('turbotaxModal')">Got It</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- H&R Block Modal -->
+    <div class="modal-overlay service-modal" id="hrblockModal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Download Your 1040 from H&R Block</h3>
+                <button class="modal-close" onclick="closeServiceModal('hrblockModal')">&times;</button>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-steps">
+                    <div class="service-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Log into H&R Block</h4>
+                            <p>Go to <a href="https://www.hrblock.com/login" target="_blank" rel="noopener">hrblock.com/login</a> and sign in with your username and password.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Go to "My Returns"</h4>
+                            <p>Click on "My Returns" or "Tax Documents" from the main menu to see your filed returns.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Select Your Tax Year</h4>
+                            <p>Find and click on the year you want to analyze (2019-2024).</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Download Form 1040 PDF</h4>
+                            <p>Look for "Download PDF" or "View/Print Return". Select Form 1040 and save the PDF to your computer.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Upload Here</h4>
+                            <p>Return to this page and drag the PDF into the upload area, or click "Choose File".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="closeServiceModal('hrblockModal')">Got It</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TaxAct Modal -->
+    <div class="modal-overlay service-modal" id="taxactModal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Download Your 1040 from TaxAct</h3>
+                <button class="modal-close" onclick="closeServiceModal('taxactModal')">&times;</button>
+            </div>
+            <div class="service-modal-body">
+                <div class="service-steps">
+                    <div class="service-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Log into TaxAct</h4>
+                            <p>Go to <a href="https://www.taxact.com/account/sign-in" target="_blank" rel="noopener">taxact.com</a> and sign in with your email and password.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Access "Prior Year Returns"</h4>
+                            <p>Click on "Prior Year Returns" or "My Account" to view your filed tax returns.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Select Your Tax Year</h4>
+                            <p>Click on the year you want (2019-2024) to open that return.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Print/Download to PDF</h4>
+                            <p>Look for "Print Return" or "Download". Choose Form 1040 and save it as a PDF file on your computer.</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Upload Here</h4>
+                            <p>Come back to this page and upload the PDF by dragging it to the upload area or clicking "Choose File".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="closeServiceModal('taxactModal')">Got It</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Libraries -->
-    <script src="js/libs/pdf.min.js"></script>
-    <script src="js/libs/d3.v7.min.js"></script>
-    <script src="js/libs/d3-sankey.min.js"></script>
-    <script src="js/libs/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
 
     <!-- Application Scripts -->
-    <script src="js/storage.js"></script>
     <script src="js/parser.js"></script>
     <script src="js/calculator.js"></script>
-    <script src="js/sankey.js"></script>
-    <script src="js/exporter.js"></script>
+    <script src="js/visualizer.js"></script>
     <script src="js/app.js"></script>
+
+    <!-- Configure PDF.js worker -->
+    <script>
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+        }
+    </script>
+
+    <!-- Service Modal Handlers -->
+    <script>
+        // Open service-specific instruction modal
+        document.querySelectorAll('.service-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const service = this.dataset.service;
+                document.getElementById(service + 'Modal').style.display = 'flex';
+            });
+        });
+
+        // Close service modal
+        function closeServiceModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.service-modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

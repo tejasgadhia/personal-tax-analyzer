@@ -2,25 +2,13 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-
-# Thumbnails
 ._*
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+# Thumbnails
+Thumbs.db
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# Windows
+Desktop.ini
 
 # Editor directories and files
 .vscode/
@@ -28,31 +16,59 @@ Temporary Items
 *.swp
 *.swo
 *~
+.project
+.classpath
+.settings/
 
 # Logs
+logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Optional npm cache directory
-.npm
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Optional eslint cache
-.eslintcache
-
-# Node modules if we add any tooling
+# Node (if added later)
 node_modules/
-
-# Build output (if we add a build process later)
-dist/
-build/
+package-lock.json
+yarn.lock
 
 # Environment variables
 .env
 .env.local
+.env.*.local
 
 # Testing
 coverage/
+.nyc_output/
+
+# Build outputs (if added later)
+dist/
+build/
+*.tgz
 
 # Temporary files
 tmp/
 temp/
+*.tmp
+
+# Local development
+.cache/
+.parcel-cache/
+
+# OS generated files
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Private or sensitive files
+*.pem
+*.key
+*.cert
+secrets/
+private/

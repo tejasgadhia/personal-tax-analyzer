@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Options - Personal Tax Analyzer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #002868;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #555;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .option-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .option-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+            border-color: #002868;
+        }
+
+        .option-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #002868 0%, #BF0A30 100%);
+            color: white;
+        }
+
+        .option-number {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .option-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .option-description {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .option-preview {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-tags {
+            padding: 15px 20px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: #002868;
+            color: white;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        /* Option 1: Clean Patriotic Minimal */
+        .option-1 .preview-content {
+            background: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .option-1 .preview-eagle {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #002868, #BF0A30);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .option-1 .preview-title {
+            font-size: 36px;
+            color: #002868;
+            margin-bottom: 12px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+        .option-1 .preview-subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .option-1 .preview-button {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #002868;
+            color: white;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .option-1 .preview-stars {
+            margin-top: 30px;
+            color: #BF0A30;
+            font-size: 20px;
+            letter-spacing: 8px;
+        }
+
+        /* Option 2: Bold Flag-Inspired */
+        .option-2 .preview-content {
+            background: #002868;
+            padding: 0;
+            position: relative;
+        }
+        .option-2 .preview-stripes {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                #BF0A30 0px,
+                #BF0A30 30px,
+                white 30px,
+                white 60px
+            );
+            opacity: 0.3;
+        }
+        .option-2 .preview-text {
+            position: relative;
+            z-index: 2;
+            padding: 60px 40px;
+            color: white;
+        }
+        .option-2 .preview-title {
+            font-size: 48px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        .option-2 .preview-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .option-2 .preview-button {
+            display: inline-block;
+            padding: 16px 50px;
+            background: white;
+            color: #002868;
+            font-weight: 700;
+            border-radius: 50px;
+        }
+
+        /* Option 3: Elegant Stars & Stripes */
+        .option-3 .preview-content {
+            background: white;
+            padding: 40px;
+            position: relative;
+        }
+        .option-3 .preview-header {
+            border-top: 4px solid #BF0A30;
+            border-bottom: 4px solid #002868;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        .option-3 .preview-stars-pattern {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #002868;
+            opacity: 0.1;
+            line-height: 1.5;
+        }
+        .option-3 .preview-title {
+            font-size: 38px;
+            color: #002868;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .option-3 .preview-subtitle {
+            color: #BF0A30;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Option 4: Modern Patriotic Gradient */
+        .option-4 .preview-content {
+            background: linear-gradient(135deg, #002868 0%, #BF0A30 100%);
+            padding: 50px 40px;
+            color: white;
+            text-align: center;
+        }
+        .option-4 .preview-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .option-4 .preview-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+        .option-4 .preview-features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .option-4 .feature-item {
+            font-size: 14px;
+        }
+
+        /* Option 5: Classic Government Seal Style */
+        .option-5 .preview-content {
+            background: #f8f9fa;
+            padding: 40px;
+        }
+        .option-5 .preview-seal {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #002868, #BF0A30);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 8px solid white;
+            box-shadow: 0 0 0 2px #002868;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+        .option-5 .preview-header {
+            text-align: center;
+            border-bottom: 3px solid #002868;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .option-5 .preview-title {
+            font-size: 32px;
+            color: #002868;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .option-5 .preview-subtitle {
+            color: #BF0A30;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        /* Option 6: Subtle Patriotic Professional */
+        .option-6 .preview-content {
+            background: white;
+            padding: 50px 40px;
+        }
+        .option-6 .preview-accent {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #002868, #BF0A30);
+            margin-bottom: 25px;
+        }
+        .option-6 .preview-title {
+            font-size: 40px;
+            color: #002868;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .option-6 .preview-subtitle {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .option-6 .preview-button {
+            padding: 14px 35px;
+            background: #BF0A30;
+            color: white;
+            border-radius: 6px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Option 7: Bold Banner Style */
+        .option-7 .preview-content {
+            background: white;
+            padding: 0;
+        }
+        .option-7 .preview-banner {
+            background: linear-gradient(90deg, #002868 0%, #BF0A30 100%);
+            padding: 30px 40px;
+            color: white;
+            text-align: center;
+        }
+        .option-7 .preview-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .option-7 .preview-tagline {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .option-7 .preview-body {
+            padding: 40px;
+        }
+        .option-7 .preview-feature {
+            padding: 15px;
+            border-left: 4px solid #BF0A30;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Option 8: Illustrated American */
+        .option-8 .preview-content {
+            background: linear-gradient(180deg, #f8f9fa 0%, white 100%);
+            padding: 40px;
+            text-align: center;
+        }
+        .option-8 .preview-illustration {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #002868 0%, #BF0A30 50%, white 50%, #BF0A30 100%);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .option-8 .star-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            color: white;
+            opacity: 0.3;
+        }
+        .option-8 .preview-title {
+            font-size: 34px;
+            color: #002868;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Option 9: Newspaper/Document Style */
+        .option-9 .preview-content {
+            background: #fefefe;
+            padding: 40px;
+            font-family: 'Georgia', serif;
+        }
+        .option-9 .preview-masthead {
+            border-top: 6px solid #002868;
+            border-bottom: 6px solid #BF0A30;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .option-9 .preview-title {
+            font-size: 36px;
+            color: #002868;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .option-9 .preview-date {
+            color: #BF0A30;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .option-9 .preview-article {
+            columns: 2;
+            column-gap: 20px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Option 10: Modern Flag Corners */
+        .option-10 .preview-content {
+            background: white;
+            padding: 50px 40px;
+            position: relative;
+        }
+        .option-10 .corner-flag {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+        .option-10 .corner-flag.top-left {
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, #002868 50%, transparent 50%);
+        }
+        .option-10 .corner-flag.bottom-right {
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(135deg, transparent 50%, #BF0A30 50%);
+        }
+        .option-10 .preview-title {
+            font-size: 38px;
+            color: #002868;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        .option-10 .preview-subtitle {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        .option-10 .preview-stars {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #BF0A30;
+            opacity: 0.3;
+        }
+
+        .select-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #002868, #BF0A30);
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .select-button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🇺🇸 Choose Your Patriotic Design Style</h1>
+        <p class="intro">
+            All designs follow the American red, white, and blue theme with patriotic elements.
+            Pick which style and intensity level you prefer for the Personal Tax Analyzer landing page.
+        </p>
+
+        <div class="options-grid">
+            <!-- Option 1: Clean Patriotic Minimal -->
+            <div class="option-card option-1">
+                <div class="option-header">
+                    <div class="option-number">Option 1</div>
+                    <div class="option-title">Clean Patriotic Minimal</div>
+                    <div class="option-description">Subtle patriotic elements, clean and professional</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="preview-eagle">🦅</div>
+                        <div class="preview-title">Personal Tax Analyzer</div>
+                        <div class="preview-subtitle">See where your tax dollars go</div>
+                        <div class="preview-button">Upload Your 1040</div>
+                        <div class="preview-stars">★ ★ ★</div>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Minimal</span>
+                    <span class="tag">Professional</span>
+                    <span class="tag">Subtle</span>
+                </div>
+                <button class="select-button" onclick="selectOption(1)">Select This Style</button>
+            </div>
+
+            <!-- Option 2: Bold Flag-Inspired -->
+            <div class="option-card option-2">
+                <div class="option-header">
+                    <div class="option-number">Option 2</div>
+                    <div class="option-title">Bold Flag-Inspired</div>
+                    <div class="option-description">Strong colors, stripes pattern, bold statement</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="preview-stripes"></div>
+                        <div class="preview-text">
+                            <div class="preview-title">YOUR TAX DOLLARS</div>
+                            <div class="preview-subtitle">
+                                Visualize exactly where your federal<br>taxes support American programs
+                            </div>
+                            <div class="preview-button">GET STARTED</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Bold</span>
+                    <span class="tag">Flag Pattern</span>
+                    <span class="tag">High Impact</span>
+                </div>
+                <button class="select-button" onclick="selectOption(2)">Select This Style</button>
+            </div>
+
+            <!-- Option 3: Elegant Stars & Stripes -->
+            <div class="option-card option-3">
+                <div class="option-header">
+                    <div class="option-number">Option 3</div>
+                    <div class="option-title">Elegant Stars & Stripes</div>
+                    <div class="option-description">Refined borders, star pattern, sophisticated</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="preview-stars-pattern">★★★★★<br>★★★★★<br>★★★★★<br>★★★★★</div>
+                        <div class="preview-header">
+                            <div class="preview-title">Personal Tax Analyzer</div>
+                            <div class="preview-subtitle">Federal Budget Transparency Tool</div>
+                        </div>
+                        <p style="color: #555; line-height: 1.8;">
+                            Upload your Form 1040 and discover how your<br>
+                            tax contribution supports government spending<br>
+                            across 10 major categories.
+                        </p>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Elegant</span>
+                    <span class="tag">Stars Pattern</span>
+                    <span class="tag">Refined</span>
+                </div>
+                <button class="select-button" onclick="selectOption(3)">Select This Style</button>
+            </div>
+
+            <!-- Option 4: Modern Patriotic Gradient -->
+            <div class="option-card option-4">
+                <div class="option-header">
+                    <div class="option-number">Option 4</div>
+                    <div class="option-title">Modern Patriotic Gradient</div>
+                    <div class="option-description">Blue to red gradient, glass-morphism, contemporary</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="preview-title">Personal Tax Analyzer</div>
+                        <p style="opacity: 0.9; font-size: 16px; margin-top: 15px;">
+                            Interactive visualization of where<br>your federal tax dollars are spent
+                        </p>
+                        <div class="preview-card">
+                            <div class="preview-features">
+                                <div class="feature-item">🔒 Private</div>
+                                <div class="feature-item">📊 Interactive</div>
+                                <div class="feature-item">🇺🇸 Official Data</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Modern</span>
+                    <span class="tag">Gradient</span>
+                    <span class="tag">Glass Effect</span>
+                </div>
+                <button class="select-button" onclick="selectOption(4)">Select This Style</button>
+            </div>
+
+            <!-- Option 5: Classic Government Seal Style -->
+            <div class="option-card option-5">
+                <div class="option-header">
+                    <div class="option-number">Option 5</div>
+                    <div class="option-title">Classic Government Seal</div>
+                    <div class="option-description">Official seal, formal, authoritative</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="preview-seal">🦅</div>
+                        <div class="preview-header">
+                            <div class="preview-title">Tax Breakdown Tool</div>
+                            <div class="preview-subtitle">Official Budget Visualization</div>
+                        </div>
+                        <p style="text-align: center; color: #555; line-height: 1.8;">
+                            A transparent view of federal spending based<br>
+                            on official OMB and Congressional Budget<br>
+                            Office data sources.
+                        </p>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Official</span>
+                    <span class="tag">Seal Design</span>
+                    <span class="tag">Formal</span>
+                </div>
+                <button class="select-button" onclick="selectOption(5)">Select This Style</button>
+            </div>
+
+            <!-- Option 6: Subtle Patriotic Professional -->
+            <div class="option-card option-6">
+                <div class="option-header">
+                    <div class="option-number">Option 6</div>
+                    <div class="option-title">Subtle Patriotic Professional</div>
+                    <div class="option-description">Accent colors, understated, business-like</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="preview-accent"></div>
+                        <div class="preview-title">Understanding Your<br>Federal Tax Contribution</div>
+                        <div class="preview-subtitle">
+                            Visualize how your tax payment supports<br>
+                            government programs and services with<br>
+                            interactive, official budget data.
+                        </div>
+                        <div class="preview-button">Upload Your 1040</div>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Subtle</span>
+                    <span class="tag">Professional</span>
+                    <span class="tag">Clean</span>
+                </div>
+                <button class="select-button" onclick="selectOption(6)">Select This Style</button>
+            </div>
+
+            <!-- Option 7: Bold Banner Style -->
+            <div class="option-card option-7">
+                <div class="option-header">
+                    <div class="option-number">Option 7</div>
+                    <div class="option-title">Bold Banner Style</div>
+                    <div class="option-description">Gradient banner header, structured sections</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="preview-banner">
+                            <div class="preview-title">Personal Tax Analyzer</div>
+                            <div class="preview-tagline">Federal Budget Transparency Initiative</div>
+                        </div>
+                        <div class="preview-body">
+                            <div class="preview-feature">
+                                <strong>🔒 100% Private Processing</strong>
+                            </div>
+                            <div class="preview-feature">
+                                <strong>📊 Interactive Visualization</strong>
+                            </div>
+                            <div class="preview-feature">
+                                <strong>🇺🇸 Official Government Data</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Banner Style</span>
+                    <span class="tag">Structured</span>
+                    <span class="tag">Feature-focused</span>
+                </div>
+                <button class="select-button" onclick="selectOption(7)">Select This Style</button>
+            </div>
+
+            <!-- Option 8: Illustrated American -->
+            <div class="option-card option-8">
+                <div class="option-header">
+                    <div class="option-number">Option 8</div>
+                    <div class="option-title">Illustrated American</div>
+                    <div class="option-description">Visual graphics, flag illustration, icon-driven</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="preview-illustration">
+                            <div class="star-overlay">★★★★★★★</div>
+                            📄 → 📊 → 💡
+                        </div>
+                        <div class="preview-title">Personal Tax Analyzer</div>
+                        <p style="color: #555; margin-top: 15px;">
+                            Upload your Form 1040 and see an<br>
+                            interactive breakdown of federal spending<br>
+                            powered by official budget data.
+                        </p>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Illustrated</span>
+                    <span class="tag">Visual</span>
+                    <span class="tag">Icon-heavy</span>
+                </div>
+                <button class="select-button" onclick="selectOption(8)">Select This Style</button>
+            </div>
+
+            <!-- Option 9: Newspaper/Document Style -->
+            <div class="option-card option-9">
+                <div class="option-header">
+                    <div class="option-number">Option 9</div>
+                    <div class="option-title">Newspaper Document Style</div>
+                    <div class="option-description">Traditional masthead, serif fonts, classic</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="preview-masthead">
+                            <div class="preview-title">Tax Analyzer</div>
+                            <div class="preview-date">Est. 2025 • Budget Transparency</div>
+                        </div>
+                        <div class="preview-article">
+                            Citizens can now visualize their personal contribution to the federal budget through an interactive tool that breaks down spending across major government programs including Social Security, Medicare, Defense, and more.
+                        </div>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Classic</span>
+                    <span class="tag">Traditional</span>
+                    <span class="tag">Newspaper Style</span>
+                </div>
+                <button class="select-button" onclick="selectOption(9)">Select This Style</button>
+            </div>
+
+            <!-- Option 10: Modern Flag Corners -->
+            <div class="option-card option-10">
+                <div class="option-header">
+                    <div class="option-number">Option 10</div>
+                    <div class="option-title">Modern Flag Corners</div>
+                    <div class="option-description">Corner accents, contemporary, balanced</div>
+                </div>
+                <div class="option-preview">
+                    <div class="preview-content">
+                        <div class="corner-flag top-left"></div>
+                        <div class="corner-flag bottom-right"></div>
+                        <div class="preview-title">Personal Tax Analyzer</div>
+                        <div class="preview-subtitle">
+                            Ever wonder where your tax dollars actually go?<br>
+                            Upload your Form 1040 and explore an interactive<br>
+                            breakdown of federal spending with official data<br>
+                            from the Congressional Budget Office.
+                        </div>
+                        <div class="preview-stars">★ ★ ★ ★ ★</div>
+                    </div>
+                </div>
+                <div class="option-tags">
+                    <span class="tag">Modern</span>
+                    <span class="tag">Balanced</span>
+                    <span class="tag">Corner Accents</span>
+                </div>
+                <button class="select-button" onclick="selectOption(10)">Select This Style</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectOption(optionNumber) {
+            alert(`✓ Option ${optionNumber} selected!\n\nLet Claude know you picked Option ${optionNumber} and they'll build out the full landing page in this patriotic style.`);
+        }
+    </script>
+</body>
+</html>

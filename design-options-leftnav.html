@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left Navigation Design Options - Personal Tax Analyzer</title>
+    <style>
+        :root {
+            --patriot-blue: #002868;
+            --patriot-red: #BF0A30;
+            --patriot-white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--patriot-blue);
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .option {
+            background: white;
+            border: 3px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: var(--patriot-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .option-header {
+            background: var(--patriot-blue);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .option-preview {
+            height: 500px;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        /* Common Styles */
+        .left-nav {
+            background: var(--patriot-blue);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .nav-item {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-item.active {
+            background: var(--patriot-red);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background: white;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--patriot-blue);
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            background: var(--patriot-red);
+            color: white;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* Option 1: Narrow Left Nav */
+        .option1 .left-nav {
+            width: 200px;
+        }
+
+        .option1 .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .option1 .hero-section {
+            grid-column: 1 / -1;
+        }
+
+        .option1 .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--patriot-blue);
+        }
+
+        .option1 .info-card h3 {
+            color: var(--patriot-blue);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .option1 .info-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Option 2: Wide Left Nav with Icons */
+        .option2 .left-nav {
+            width: 280px;
+            background: linear-gradient(180deg, var(--patriot-blue) 0%, #001840 100%);
+        }
+
+        .option2 .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .option2 .nav-icon {
+            font-size: 20px;
+        }
+
+        .option2 .main-content {
+            background: #fafafa;
+        }
+
+        .option2 .content-card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Option 3: Split Screen */
+        .option3 .left-nav {
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--patriot-blue) 0%, var(--patriot-red) 100%);
+        }
+
+        .option3 .nav-logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .option3 .nav-menu {
+            display: none;
+        }
+
+        .option3 .main-content {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .option3 .hero-title {
+            font-size: 42px;
+        }
+
+        /* Option 4: Sidebar with Stats */
+        .option4 .left-nav {
+            width: 320px;
+            background: white;
+            color: var(--patriot-blue);
+            border-right: 3px solid var(--patriot-blue);
+        }
+
+        .option4 .nav-logo {
+            color: var(--patriot-blue);
+            border-bottom: 2px solid var(--patriot-red);
+            padding-bottom: 20px;
+        }
+
+        .option4 .nav-item {
+            color: var(--patriot-blue);
+            border: 2px solid #e0e0e0;
+        }
+
+        .option4 .nav-item.active {
+            background: var(--patriot-blue);
+            color: white;
+        }
+
+        .option4 .stat-box {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--patriot-red);
+        }
+
+        .option4 .stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .option4 .stat-value {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--patriot-blue);
+            margin-top: 4px;
+        }
+
+        /* Option 5: Compact Dashboard */
+        .option5 .left-nav {
+            width: 240px;
+        }
+
+        .option5 .main-content {
+            background: #f5f7fa;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto 1fr;
+            gap: 20px;
+        }
+
+        .option5 .header-bar {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 6px solid var(--patriot-red);
+        }
+
+        .option5 .quick-action {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+        }
+
+        .option5 .quick-action h3 {
+            color: var(--patriot-blue);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .option5 .quick-action p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        /* Option 6: Minimal Left Rail */
+        .option6 .left-nav {
+            width: 180px;
+            background: #1a1a1a;
+        }
+
+        .option6 .nav-item {
+            font-size: 13px;
+            text-align: center;
+            padding: 16px 8px;
+        }
+
+        .option6 .nav-icon {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .option6 .main-content {
+            padding: 60px 80px;
+        }
+
+        .option6 .hero-title {
+            font-size: 48px;
+        }
+
+        .option6 .feature-list {
+            display: flex;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .option6 .feature {
+            flex: 1;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .option6 .feature h4 {
+            color: var(--patriot-blue);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .option6 .feature p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Left Navigation Design Options (No Scrolling)</h1>
+
+    <div class="grid">
+        <!-- Option 1: Classic Sidebar with Grid -->
+        <div class="option option1">
+            <div class="option-header">Option 1: Classic Sidebar with Info Grid</div>
+            <div class="option-preview">
+                <div class="mockup">
+                    <div class="left-nav">
+                        <div class="nav-logo">PTA</div>
+                        <div class="nav-item active">Home</div>
+                        <div class="nav-item">Upload 1040</div>
+                        <div class="nav-item">Sources</div>
+                        <div class="nav-item">How It Works</div>
+                        <div class="nav-item">GitHub</div>
+                    </div>
+                    <div class="main-content">
+                        <div class="hero-section">
+                            <div class="hero-title">Personal Tax Analyzer</div>
+                            <div class="hero-subtitle">Visualize where your federal tax dollars go</div>
+                            <button class="cta-button">Upload Your Form 1040</button>
+                        </div>
+                        <div class="info-card">
+                            <h3>🔒 100% Private</h3>
+                            <p>All processing happens in your browser. Zero uploads.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>📊 Interactive</h3>
+                            <p>Explore spending with dynamic visualizations.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>🇺🇸 Official Data</h3>
+                            <p>Sourced from OMB, CBO, and U.S. Treasury.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>📈 Compare</h3>
+                            <p>See how you compare to national averages.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 2: Wide Nav with Icons -->
+        <div class="option option2">
+            <div class="option-header">Option 2: Wide Sidebar with Icons & Cards</div>
+            <div class="option-preview">
+                <div class="mockup">
+                    <div class="left-nav">
+                        <div class="nav-logo">Personal Tax Analyzer</div>
+                        <div class="nav-item active">
+                            <span class="nav-icon">🏠</span>
+                            <span>Home</span>
+                        </div>
+                        <div class="nav-item">
+                            <span class="nav-icon">📄</span>
+                            <span>Upload 1040</span>
+                        </div>
+                        <div class="nav-item">
+                            <span class="nav-icon">📚</span>
+                            <span>Data Sources</span>
+                        </div>
+                        <div class="nav-item">
+                            <span class="nav-icon">⚙️</span>
+                            <span>How It Works</span>
+                        </div>
+                        <div class="nav-item">
+                            <span class="nav-icon">💻</span>
+                            <span>GitHub</span>
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="content-card">
+                            <div class="hero-title" style="font-size: 32px;">Where Do Your Tax Dollars Go?</div>
+                            <div class="hero-subtitle">Upload your Form 1040 and see exactly how your tax payment is allocated across government programs.</div>
+                            <button class="cta-button">Get Started</button>
+                        </div>
+                        <div class="content-card">
+                            <h3 style="color: #002868; margin-bottom: 12px;">🔒 Your Privacy is Guaranteed</h3>
+                            <p style="color: #666; font-size: 14px; line-height: 1.6;">All processing happens entirely in your web browser. Your tax return never leaves your device. No uploads. No servers. No tracking.</p>
+                        </div>
+                        <div class="content-card">
+                            <h3 style="color: #002868; margin-bottom: 12px;">Key Features</h3>
+                            <p style="color: #666; font-size: 13px; line-height: 1.6;">• Interactive Sankey diagram<br>• 67 detailed subcategories<br>• Historical data (2019-2024)<br>• Export & save visualizations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 3: Split Screen Hero -->
+        <div class="option option3">
+            <div class="option-header">Option 3: 50/50 Split Screen Hero</div>
+            <div class="option-preview">
+                <div class="mockup">
+                    <div class="left-nav">
+                        <div class="nav-logo">🇺🇸</div>
+                        <div style="font-size: 42px; font-weight: 900; margin-bottom: 20px;">Personal Tax Analyzer</div>
+                        <div style="font-size: 16px; opacity: 0.9; margin-bottom: 40px;">Federal Budget Transparency</div>
+                        <div style="width: 100px; height: 3px; background: white; margin: 0 auto 40px;"></div>
+                        <div style="font-size: 14px; opacity: 0.8; line-height: 1.8;">
+                            Est. 2025<br>
+                            Open Source<br>
+                            100% Private
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="hero-title">See Where Your Tax Dollars Go</div>
+                        <div class="hero-subtitle">Upload your Form 1040 and explore an interactive breakdown of federal spending based on your personal tax contribution.</div>
+                        <button class="cta-button" style="margin-bottom: 32px;">Upload Form 1040</button>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 13px;">
+                            <div>
+                                <div style="font-weight: 600; color: #002868; margin-bottom: 4px;">FY 2024 Budget</div>
+                                <div style="color: #666;">$6.8 Trillion</div>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: #002868; margin-bottom: 4px;">Major Categories</div>
+                                <div style="color: #666;">10 Categories</div>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: #002868; margin-bottom: 4px;">Subcategories</div>
+                                <div style="color: #666;">67 Detailed</div>
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: #002868; margin-bottom: 4px;">Years Available</div>
+                                <div style="color: #666;">2019-2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 4: Stats Sidebar -->
+        <div class="option option4">
+            <div class="option-header">Option 4: Stats-Heavy Sidebar (Dashboard Style)</div>
+            <div class="option-preview">
+                <div class="mockup">
+                    <div class="left-nav">
+                        <div class="nav-logo">Personal Tax Analyzer</div>
+                        <div class="nav-item active">Home</div>
+                        <div class="nav-item">Upload 1040</div>
+                        <div class="nav-item">Sources</div>
+                        <div class="nav-item">Technical</div>
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #e0e0e0;">
+                            <div class="stat-box">
+                                <div class="stat-label">FY 2024</div>
+                                <div class="stat-value">$6.8T</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Categories</div>
+                                <div class="stat-value">10</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-label">Subcategories</div>
+                                <div class="stat-value">67</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="hero-title" style="font-size: 36px;">Where Do Your Tax Dollars Go?</div>
+                        <div class="hero-subtitle">Upload your Form 1040 and see an interactive breakdown of federal spending.</div>
+                        <button class="cta-button">Upload Your Form 1040</button>
+                        <div style="margin-top: 40px; padding: 24px; background: #f8f9fa; border-radius: 8px; border-left: 6px solid #BF0A30;">
+                            <h3 style="color: #002868; font-size: 18px; margin-bottom: 12px;">🔒 Your Privacy is Guaranteed</h3>
+                            <p style="color: #666; font-size: 14px; line-height: 1.7;">All processing happens entirely in your web browser. Your tax return never leaves your device. No uploads. No servers. No tracking.</p>
+                        </div>
+                        <div style="margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                            <div style="text-align: center; padding: 16px; background: white; border-radius: 6px; border: 2px solid #e0e0e0;">
+                                <div style="font-size: 28px;">📊</div>
+                                <div style="font-size: 12px; color: #666; margin-top: 8px; font-weight: 600;">Interactive</div>
+                            </div>
+                            <div style="text-align: center; padding: 16px; background: white; border-radius: 6px; border: 2px solid #e0e0e0;">
+                                <div style="font-size: 28px;">🇺🇸</div>
+                                <div style="font-size: 12px; color: #666; margin-top: 8px; font-weight: 600;">Official Data</div>
+                            </div>
+                            <div style="text-align: center; padding: 16px; background: white; border-radius: 6px; border: 2px solid #e0e0e0;">
+                                <div style="font-size: 28px;">💾</div>
+                                <div style="font-size: 12px; color: #666; margin-top: 8px; font-weight: 600;">Export</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 5: Compact Dashboard -->
+        <div class="option option5">
+            <div class="option-header">Option 5: Dashboard with Quick Actions</div>
+            <div class="option-preview">
+                <div class="mockup">
+                    <div class="left-nav">
+                        <div class="nav-logo">PTA</div>
+                        <div class="nav-item active">Dashboard</div>
+                        <div class="nav-item">Upload</div>
+                        <div class="nav-item">Sources</div>
+                        <div class="nav-item">Technical</div>
+                        <div class="nav-item">GitHub</div>
+                    </div>
+                    <div class="main-content">
+                        <div class="header-bar">
+                            <div class="hero-title" style="font-size: 28px; margin-bottom: 8px;">Personal Tax Analyzer</div>
+                            <div class="hero-subtitle" style="margin: 0; font-size: 14px;">Visualize where your federal tax dollars go • 100% Private • Open Source</div>
+                        </div>
+                        <div class="quick-action">
+                            <h3>📄 Upload Form 1040</h3>
+                            <p>Upload your tax return to see your personal breakdown</p>
+                            <button class="cta-button" style="padding: 12px 24px; font-size: 16px;">Get Started</button>
+                        </div>
+                        <div class="quick-action">
+                            <h3>📊 Sample Data</h3>
+                            <p>Explore with national average taxpayer data</p>
+                            <button style="background: #002868; color: white; padding: 12px 24px; font-size: 16px; font-weight: 600; border: none; border-radius: 6px;">View Demo</button>
+                        </div>
+                        <div class="quick-action">
+                            <h3>📚 Data Sources</h3>
+                            <p>See where our budget data comes from</p>
+                            <button style="background: white; color: #002868; padding: 12px 24px; font-size: 16px; font-weight: 600; border: 2px solid #002868; border-radius: 6px;">Learn More</button>
+                        </div>
+                        <div class="quick-action">
+                            <h3>⚙️ How It Works</h3>
+                            <p>Technical details and privacy information</p>
+                            <button style="background: white; color: #002868; padding: 12px 24px; font-size: 16px; font-weight: 600; border: 2px solid #002868; border-radius: 6px;">Read More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 6: Minimal Icon Rail -->
+        <div class="option option6">
+            <div class="option-header">Option 6: Minimal Icon Rail (Maximum Content)</div>
+            <div class="option-preview">
+                <div class="mockup">
+                    <div class="left-nav">
+                        <div class="nav-item active">
+                            <span class="nav-icon">🏠</span>
+                            <span>Home</span>
+                        </div>
+                        <div class="nav-item">
+                            <span class="nav-icon">📄</span>
+                            <span>Upload</span>
+                        </div>
+                        <div class="nav-item">
+                            <span class="nav-icon">📚</span>
+                            <span>Sources</span>
+                        </div>
+                        <div class="nav-item">
+                            <span class="nav-icon">⚙️</span>
+                            <span>Tech</span>
+                        </div>
+                        <div class="nav-item">
+                            <span class="nav-icon">💻</span>
+                            <span>GitHub</span>
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="hero-title">Personal Tax Analyzer</div>
+                        <div class="hero-subtitle">See where your federal tax dollars go. Upload your Form 1040 and explore an interactive breakdown of government spending.</div>
+                        <button class="cta-button">Upload Your Form 1040</button>
+                        <div class="feature-list">
+                            <div class="feature">
+                                <h4>🔒 100% Private</h4>
+                                <p>All processing in your browser. Zero uploads, no tracking.</p>
+                            </div>
+                            <div class="feature">
+                                <h4>📊 Interactive</h4>
+                                <p>Dynamic Sankey diagrams with 67 subcategories.</p>
+                            </div>
+                            <div class="feature">
+                                <h4>🇺🇸 Official Data</h4>
+                                <p>OMB, CBO, and U.S. Treasury sources.</p>
+                            </div>
+                            <div class="feature">
+                                <h4>💾 Export</h4>
+                                <p>Save and share your visualizations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const optionName = this.querySelector('.option-header').textContent;
+                alert(`You selected: ${optionName}\n\nLet me know which option you'd like and I'll build it!`);
+            });
+        });
+    </script>
+</body>
+</html>
