@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Patriotic Theme - Red, White, and Blue
+   ========================================================================== */
+
+/* Background Pattern
+   ========================================================================== */
+
+.patriotic-bg {
+  background-image: 
+    linear-gradient(rgba(0, 40, 104, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 40, 104, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  position: relative;
+}
+
+.patriotic-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/images/star-pattern.svg');
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Header with Patriotic Accent
+   ========================================================================== */
+
+.patriotic-header {
+  background: linear-gradient(
+    to bottom,
+    var(--patriot-white) 0%,
+    var(--patriot-white) 85%,
+    var(--patriot-blue) 85%,
+    var(--patriot-blue) 90%,
+    var(--patriot-red) 90%,
+    var(--patriot-red) 100%
+  );
+}
+
+/* Privacy Banner
+   ========================================================================== */
+
+.privacy-banner {
+  background: var(--patriot-blue);
+  color: var(--patriot-white);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  text-align: center;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-xl) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.privacy-banner::before {
+  content: '🔒';
+  font-size: var(--font-size-xl);
+}
+
+/* Logo Styling
+   ========================================================================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--patriot-blue);
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Call to Action Button
+   ========================================================================== */
+
+.cta-button {
+  background: linear-gradient(135deg, var(--patriot-blue) 0%, var(--patriot-red) 100%);
+  color: var(--patriot-white);
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-xl);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 40, 104, 0.2);
+}
+
+/* Section Dividers
+   ========================================================================== */
+
+.section-divider {
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--patriot-blue) 0%,
+    var(--patriot-white) 50%,
+    var(--patriot-red) 100%
+  );
+  border: none;
+  margin: var(--spacing-2xl) 0;
+}
+
+/* Stars as List Bullets
+   ========================================================================== */
+
+.star-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.star-list li {
+  padding-left: var(--spacing-lg);
+  position: relative;
+  margin-bottom: var(--spacing-sm);
+}
+
+.star-list li::before {
+  content: '⭐';
+  position: absolute;
+  left: 0;
+}
+
+/* Category Badges
+   ========================================================================== */
+
+.category-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--patriot-white);
+}
+
+.category-badge.social-security { background: var(--social-security); }
+.category-badge.medicare { background: var(--medicare); }
+.category-badge.defense { background: var(--defense); }
+.category-badge.interest { background: var(--interest); }
+.category-badge.healthcare { background: var(--healthcare); }
+.category-badge.income-security { background: var(--income-security); }
+.category-badge.veterans { background: var(--veterans); }
+.category-badge.education { background: var(--education); }
+.category-badge.transportation { background: var(--transportation); }
+.category-badge.other { background: var(--other); }

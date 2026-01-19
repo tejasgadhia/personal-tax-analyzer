@@ -1,0 +1,187 @@
+/* ==========================================================================
+   Sankey Visualization Styles
+   ========================================================================== */
+
+/* Container
+   ========================================================================== */
+
+.sankey-container {
+  width: 100%;
+  height: var(--sankey-height);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-2xl) 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sankey-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Nodes (Categories)
+   ========================================================================== */
+
+.sankey-node {
+  cursor: pointer;
+  transition: opacity var(--transition-base);
+}
+
+.sankey-node:hover {
+  opacity: 0.9;
+}
+
+.sankey-node rect {
+  fill-opacity: 0.9;
+  stroke: var(--patriot-white);
+  stroke-width: 2;
+}
+
+/* Links (Flows)
+   ========================================================================== */
+
+.sankey-link {
+  fill: none;
+  stroke-opacity: 0.3;
+  transition: stroke-opacity var(--transition-fast),
+              stroke-width var(--transition-base);
+}
+
+.sankey-link:hover {
+  stroke-opacity: 0.6;
+}
+
+.sankey-link.active {
+  stroke-opacity: 0.8;
+}
+
+/* Labels
+   ========================================================================== */
+
+.sankey-label {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  fill: var(--text-primary);
+  pointer-events: none;
+}
+
+.sankey-label-amount {
+  font-weight: var(--font-weight-bold);
+}
+
+.sankey-label-percentage {
+  font-size: var(--font-size-xs);
+  fill: var(--text-secondary);
+}
+
+/* Tooltip
+   ========================================================================== */
+
+.sankey-tooltip {
+  position: absolute;
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.sankey-tooltip.visible {
+  opacity: 1;
+}
+
+.sankey-tooltip-title {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+}
+
+.sankey-tooltip-amount {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--patriot-blue);
+  margin-bottom: var(--spacing-xs);
+}
+
+.sankey-tooltip-percentage {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.sankey-tooltip-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Controls
+   ========================================================================== */
+
+.sankey-controls {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.sankey-control-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.sankey-control-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+/* Expand/Collapse Animations
+   ========================================================================== */
+
+.sankey-node.expanding {
+  animation: pulse 300ms ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Legend (if needed)
+   ========================================================================== */
+
+.sankey-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+}
+
+.sankey-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.sankey-legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+}
+
+.sankey-legend-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}

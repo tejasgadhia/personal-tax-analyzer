@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visualize where your federal tax dollars go. Upload your Form 1040 and see an interactive breakdown of government spending.">
+    <title>Personal Tax Analyzer - See Where Your Tax Dollars Go</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/patriotic-theme.css">
+
+    <!-- Preload key assets -->
+    <link rel="preload" href="assets/images/logo.svg" as="image">
+</head>
+<body>
+    <div class="landing-page">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="logo-section">
+                    <img src="assets/images/logo.svg" alt="Personal Tax Analyzer" class="logo">
+                    <h1>Personal Tax Analyzer</h1>
+                </div>
+                <nav class="nav">
+                    <a href="sources.html">Sources</a>
+                    <a href="technical.html">How It Works</a>
+                    <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h2>See Where Your Tax Dollars Go</h2>
+                <p class="subtitle">Upload your Form 1040 and visualize your personal contribution to federal spending</p>
+                <div class="privacy-banner">
+                    <span class="icon">🔒</span>
+                    <strong>100% Private:</strong> All processing happens in your browser. No data is uploaded or stored on any server.
+                </div>
+                <a href="app.html" class="cta-button">Upload Your 1040</a>
+            </div>
+        </section>
+
+        <!-- Instructions Section -->
+        <section class="instructions">
+            <div class="container">
+                <h3>How to Get Your Form 1040</h3>
+
+                <div class="instruction-cards">
+                    <div class="card">
+                        <div class="card-number">1</div>
+                        <h4>Filed Online</h4>
+                        <p>If you filed with TurboTax, H&R Block, or another online service, log into your account and download your completed Form 1040 PDF.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-number">2</div>
+                        <h4>Filed with a CPA</h4>
+                        <p>Contact your tax preparer and request a copy of your filed Form 1040. Most CPAs provide this digitally.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-number">3</div>
+                        <h4>Request from IRS</h4>
+                        <p>Order a free transcript at <a href="https://www.irs.gov/individuals/get-transcript" target="_blank">irs.gov/individuals/get-transcript</a> or call 1-800-908-9946.</p>
+                    </div>
+                </div>
+
+                <div class="fica-explanation">
+                    <h4>You'll Also Need Your W-2</h4>
+                    <p>To see your total tax contribution including Social Security and Medicare taxes (FICA), you'll need:</p>
+                    <ul>
+                        <li><strong>Box 4:</strong> Social Security tax withheld</li>
+                        <li><strong>Box 6:</strong> Medicare tax withheld</li>
+                    </ul>
+                    <p class="note">Don't have your W-2? No problem! You can skip this and just see your federal income tax breakdown.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h3>What You'll See</h3>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <span class="feature-icon">📊</span>
+                        <h4>Interactive Visualization</h4>
+                        <p>Explore a beautiful Sankey diagram showing exactly how your tax dollars flow to 10 major spending categories</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🔍</span>
+                        <h4>Detailed Breakdown</h4>
+                        <p>Click to expand categories and see subcategories with specific programs and dollar amounts</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📈</span>
+                        <h4>National Context</h4>
+                        <p>Compare your tax contribution to the national average and see where you stand</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">💾</span>
+                        <h4>Export & Share</h4>
+                        <p>Download your breakdown as an image or save the data to reload later</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>Data sourced from official U.S. government publications: OMB, CBO, Treasury Department, IRS</p>
+                <p>
+                    <a href="sources.html">View All Sources</a> |
+                    <a href="technical.html">Technical Details</a> |
+                    <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>
+                </p>
+                <p class="copyright">Open source project. No affiliation with any government agency.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Subtle repeating star pattern for backgrounds -->
+  <!-- Use at 10% opacity for subtle effect -->
+
+  <defs>
+    <!-- Single star path -->
+    <path id="star" d="M 10 0 L 12 7 L 20 7 L 14 11 L 16 18 L 10 14 L 4 18 L 6 11 L 0 7 L 8 7 Z"
+          fill="#002868" opacity="0.15"/>
+  </defs>
+
+  <!-- Scattered stars across the pattern -->
+  <!-- Row 1 -->
+  <use href="#star" x="20" y="20"/>
+  <use href="#star" x="80" y="15"/>
+  <use href="#star" x="150" y="25"/>
+
+  <!-- Row 2 -->
+  <use href="#star" x="45" y="55"/>
+  <use href="#star" x="120" y="60"/>
+  <use href="#star" x="175" y="50"/>
+
+  <!-- Row 3 -->
+  <use href="#star" x="10" y="95"/>
+  <use href="#star" x="70" y="100"/>
+  <use href="#star" x="140" y="90"/>
+
+  <!-- Row 4 -->
+  <use href="#star" x="30" y="130"/>
+  <use href="#star" x="100" y="135"/>
+  <use href="#star" x="160" y="125"/>
+
+  <!-- Row 5 -->
+  <use href="#star" x="50" y="170"/>
+  <use href="#star" x="115" y="175"/>
+  <use href="#star" x="180" y="165"/>
+
+  <!-- Additional scattered stars for density -->
+  <use href="#star" x="185" y="80"/>
+  <use href="#star" x="5" y="155"/>
+  <use href="#star" x="95" y="35"/>
+  <use href="#star" x="135" y="155"/>
+  <use href="#star" x="55" y="10"/>
+</svg>

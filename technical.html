@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Technical details and privacy information for Personal Tax Analyzer">
+    <title>How It Works - Personal Tax Analyzer</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/patriotic-theme.css">
+</head>
+<body>
+    <div class="content-page">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="logo-section">
+                    <a href="index.html">
+                        <img src="assets/images/logo.svg" alt="Personal Tax Analyzer" class="logo">
+                    </a>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <a href="app.html">App</a>
+                    <a href="sources.html">Sources</a>
+                    <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="main-content">
+            <div class="container narrow">
+                <h1>How It Works</h1>
+                <p class="intro">This application is designed with privacy as the top priority. Everything happens in your browser—no data is ever uploaded to a server.</p>
+
+                <!-- Privacy First -->
+                <section class="tech-section">
+                    <h2>🔒 Privacy & Security</h2>
+
+                    <h3>100% Client-Side Processing</h3>
+                    <p>All PDF parsing, calculations, and visualization happen entirely in your web browser using JavaScript. Your Form 1040 never leaves your device.</p>
+
+                    <h3>No Server Calls</h3>
+                    <p>After the initial page load, this application makes <strong>zero network requests</strong>. You can verify this by:</p>
+                    <ol>
+                        <li>Opening your browser's Developer Tools (F12)</li>
+                        <li>Go to the Network tab</li>
+                        <li>Upload your 1040 and watch—no new requests appear</li>
+                    </ol>
+
+                    <h3>No Tracking or Analytics</h3>
+                    <ul>
+                        <li>No Google Analytics</li>
+                        <li>No Facebook Pixel</li>
+                        <li>No third-party tracking scripts</li>
+                        <li>No cookies (except localStorage if you choose to save data)</li>
+                    </ul>
+
+                    <h3>Open Source</h3>
+                    <p>The complete source code is available on <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>. Anyone can audit the code to verify our privacy claims.</p>
+                </section>
+
+                <!-- How It Works -->
+                <section class="tech-section">
+                    <h2>⚙️ Technical Architecture</h2>
+
+                    <h3>1. PDF Parsing</h3>
+                    <p>We use <strong>PDF.js</strong> (Mozilla's PDF library) to read your Form 1040:</p>
+                    <ul>
+                        <li>Extract text content from the PDF</li>
+                        <li>Identify form type (1040, 1040-SR, 1040-NR, 1040-X)</li>
+                        <li>Extract tax year from the form header</li>
+                        <li>Locate and extract federal income tax from Line 24</li>
+                        <li>Validate the data and handle edge cases</li>
+                    </ul>
+
+                    <h3>2. Tax Calculation</h3>
+                    <p>Once we have your tax amounts:</p>
+                    <ul>
+                        <li>Load the appropriate budget data for your tax year (2019-2024)</li>
+                        <li>Calculate your personal contribution to each spending category</li>
+                        <li>Formula: <code>Your Amount = (Your Tax / Total Budget) × Category Amount</code></li>
+                        <li>Round all amounts to the nearest dollar</li>
+                        <li>Calculate comparisons to national averages</li>
+                    </ul>
+
+                    <h3>3. Interactive Visualization</h3>
+                    <p>We use <strong>D3.js</strong> and the <strong>d3-sankey</strong> plugin to create the flow diagram:</p>
+                    <ul>
+                        <li>Two-tier hierarchy: 10 major categories → 67 subcategories</li>
+                        <li>Click to expand/collapse categories</li>
+                        <li>Hover for tooltips with exact amounts</li>
+                        <li>Smooth 300ms transitions</li>
+                        <li>Color-coded by category</li>
+                    </ul>
+
+                    <h3>4. Data Export</h3>
+                    <p><strong>JSON Export:</strong> Save your breakdown as a JSON file for later use</p>
+                    <p><strong>Image Export:</strong> Uses <strong>html2canvas</strong> to render the visualization as a PNG image with customizable options</p>
+                </section>
+
+                <!-- Technology Stack -->
+                <section class="tech-section">
+                    <h2>🛠️ Technology Stack</h2>
+
+                    <h3>Core Technologies</h3>
+                    <ul>
+                        <li><strong>Vanilla JavaScript</strong> - No frameworks, maximum performance</li>
+                        <li><strong>HTML5 + CSS3</strong> - Modern web standards</li>
+                        <li><strong>GitHub Pages</strong> - Static hosting, no backend</li>
+                    </ul>
+
+                    <h3>JavaScript Libraries</h3>
+                    <ul>
+                        <li><strong>PDF.js 3.11.174</strong> (~600KB) - Mozilla's PDF parser</li>
+                        <li><strong>D3.js v7</strong> (~250KB) - Data visualization</li>
+                        <li><strong>d3-sankey</strong> (~20KB) - Sankey diagram plugin</li>
+                        <li><strong>html2canvas 1.4.1</strong> (~150KB) - Image export</li>
+                    </ul>
+
+                    <h3>Total Bundle Size</h3>
+                    <p>~1.8MB total (libraries + app code + data)</p>
+                </section>
+
+                <!-- Data Storage -->
+                <section class="tech-section">
+                    <h2>💾 Local Data Storage</h2>
+
+                    <h3>How Saving Works</h3>
+                    <p>If you choose to save your data:</p>
+                    <ul>
+                        <li><strong>LocalStorage:</strong> Data stored in your browser's localStorage</li>
+                        <li><strong>What's Saved:</strong> Tax amounts, calculated breakdowns, tax year</li>
+                        <li><strong>What's NOT Saved:</strong> Your actual PDF file</li>
+                        <li><strong>How Long:</strong> Until you clear browser cache or click "Clear Data"</li>
+                    </ul>
+
+                    <h3>Clearing Your Data</h3>
+                    <p>You can clear all saved data at any time:</p>
+                    <ul>
+                        <li>Click the "Clear Data" button in the app</li>
+                        <li>Clear your browser cache/cookies</li>
+                        <li>Use your browser's "Clear browsing data" feature</li>
+                    </ul>
+                </section>
+
+                <!-- Browser Support -->
+                <section class="tech-section">
+                    <h2>🌐 Browser Support</h2>
+
+                    <h3>Supported Browsers</h3>
+                    <ul>
+                        <li><strong>Chrome</strong> 90+ ✅</li>
+                        <li><strong>Firefox</strong> 88+ ✅</li>
+                        <li><strong>Safari</strong> 14+ ✅</li>
+                        <li><strong>Edge</strong> 90+ ✅</li>
+                    </ul>
+
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li><strong>Desktop only:</strong> Minimum 1024px screen width</li>
+                        <li><strong>JavaScript enabled:</strong> Required for all functionality</li>
+                        <li><strong>~2MB free memory:</strong> For processing and visualization</li>
+                    </ul>
+
+                    <p><strong>Note:</strong> Mobile devices are not supported due to the complexity of the visualization and the need for precise interaction.</p>
+                </section>
+
+                <!-- File Structure -->
+                <section class="tech-section">
+                    <h2>📂 Project Structure</h2>
+
+                    <pre><code>personal-tax-analyzer/
+├── index.html              # Landing page
+├── app.html                # Main application
+├── sources.html            # Data sources
+├── technical.html          # This page
+├── /data
+│   └── /budgets
+│       ├── 2019.json       # FY2019 budget
+│       ├── 2020.json       # FY2020 budget
+│       ├── 2021.json       # FY2021 budget
+│       ├── 2022.json       # FY2022 budget
+│       ├── 2023.json       # FY2023 budget
+│       └── 2024.json       # FY2024 budget
+├── /js
+│   ├── /libs
+│   │   ├── pdf.min.js      # PDF parsing
+│   │   ├── d3.v7.min.js    # Visualization
+│   │   ├── d3-sankey.min.js
+│   │   └── html2canvas.min.js
+│   ├── parser.js           # 1040 parsing logic
+│   ├── calculator.js       # Tax calculations
+│   ├── sankey.js           # Visualization
+│   ├── exporter.js         # Export handlers
+│   ├── storage.js          # LocalStorage
+│   └── app.js              # Main controller
+├── /css
+│   ├── style.css           # Global styles
+│   ├── patriotic-theme.css # Theme
+│   └── sankey.css          # Viz styles
+└── /assets
+    └── /images
+        ├── logo.svg
+        └── star-pattern.svg</code></pre>
+                </section>
+
+                <!-- Verification -->
+                <section class="tech-section">
+                    <h2>✅ Verify Our Claims</h2>
+
+                    <h3>Method 1: Browser Developer Tools</h3>
+                    <ol>
+                        <li>Open the app in your browser</li>
+                        <li>Press F12 to open Developer Tools</li>
+                        <li>Go to the "Network" tab</li>
+                        <li>Upload your 1040 and watch—no requests to external servers</li>
+                    </ol>
+
+                    <h3>Method 2: Use a Network Monitor</h3>
+                    <p>Run a network monitoring tool like <a href="https://www.wireshark.org/" target="_blank">Wireshark</a> or <a href="https://www.charlesproxy.com/" target="_blank">Charles Proxy</a> while using the app. You'll see zero outbound requests after the initial page load.</p>
+
+                    <h3>Method 3: Disconnect Your Internet</h3>
+                    <ol>
+                        <li>Load the app page (index.html or app.html)</li>
+                        <li>Wait for the page to fully load</li>
+                        <li>Disconnect from the internet</li>
+                        <li>Upload your 1040—everything still works!</li>
+                    </ol>
+
+                    <h3>Method 4: Review the Source Code</h3>
+                    <p>All source code is available on <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>. Review it yourself or have a developer you trust audit it.</p>
+                </section>
+
+                <!-- Performance -->
+                <section class="tech-section">
+                    <h2>⚡ Performance</h2>
+
+                    <h3>Target Metrics</h3>
+                    <ul>
+                        <li><strong>First contentful paint:</strong> &lt; 1.5s</li>
+                        <li><strong>Time to interactive:</strong> &lt; 3s</li>
+                        <li><strong>PDF parsing:</strong> &lt; 3s for typical 1040</li>
+                        <li><strong>Calculation:</strong> &lt; 100ms</li>
+                        <li><strong>Visualization render:</strong> &lt; 1s</li>
+                        <li><strong>Expand/collapse animation:</strong> 300ms</li>
+                    </ul>
+
+                    <h3>Optimizations</h3>
+                    <ul>
+                        <li>Lazy load D3.js after PDF upload</li>
+                        <li>Minified JavaScript files</li>
+                        <li>Compressed budget JSON files</li>
+                        <li>Pre-calculated percentages</li>
+                        <li>Debounced hover events</li>
+                    </ul>
+                </section>
+
+                <!-- Questions -->
+                <section class="tech-section">
+                    <h2>❓ Questions?</h2>
+                    <p>Have questions about how this works? Want to report a bug or security issue?</p>
+                    <ul>
+                        <li><a href="https://github.com/tejasgadhia/personal-tax-analyzer/issues" target="_blank">Open an issue on GitHub</a></li>
+                        <li><a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">View the source code</a></li>
+                    </ul>
+                </section>
+
+                <div class="back-link">
+                    <a href="index.html" class="btn-secondary">← Back to Home</a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>Open source project. No affiliation with any government agency.</p>
+                <p><a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">View on GitHub</a></p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

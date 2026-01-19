@@ -1,0 +1,522 @@
+{
+  "fiscalYear": 2020,
+  "totalBudget": 6552000000000,
+  "dataSource": {
+    "primary": "Congressional Budget Office - Monthly Budget Review FY2020, U.S. Treasury Fiscal Data, Office of Management and Budget Historical Tables",
+    "url": "https://www.cbo.gov/publication/56746",
+    "accessed": "2026-01-19",
+    "citation": "[1]"
+  },
+  "nationalAverages": {
+    "avgFederalIncomeTax": 16711,
+    "avgFICA": 5853,
+    "medianHouseholdIncome": 67521,
+    "source": "[2][3][4]"
+  },
+  "categories": [
+    {
+      "id": "social-security",
+      "name": "Social Security",
+      "amount": 1096000000000,
+      "percentage": 16.73,
+      "color": "#4A90E2",
+      "icon": "👴",
+      "description": "Retirement, disability, and survivors benefits for 69 million Americans",
+      "source": "[1][5]",
+      "subcategories": [
+        {
+          "name": "Retirement Benefits (OASI)",
+          "amount": 862000000000,
+          "percentage": 78.65,
+          "description": "Monthly benefits for 49 million retired workers and their dependents"
+        },
+        {
+          "name": "Survivors Benefits",
+          "amount": 121000000000,
+          "percentage": 11.04,
+          "description": "Benefits for 6 million survivors of deceased workers"
+        },
+        {
+          "name": "Disability Insurance (SSDI)",
+          "amount": 96000000000,
+          "percentage": 8.76,
+          "description": "Benefits for 8.7 million disabled workers and their dependents"
+        },
+        {
+          "name": "Supplemental Security Income (SSI)",
+          "amount": 17000000000,
+          "percentage": 1.55,
+          "description": "Income assistance for low-income elderly and disabled individuals"
+        }
+      ]
+    },
+    {
+      "id": "medicare",
+      "name": "Medicare",
+      "amount": 769000000000,
+      "percentage": 11.74,
+      "color": "#E24A4A",
+      "icon": "🏥",
+      "description": "Health insurance for 62 million Americans 65+ and certain younger people with disabilities",
+      "source": "[1]",
+      "subcategories": [
+        {
+          "name": "Part A - Hospital Insurance",
+          "amount": 308000000000,
+          "percentage": 40.05,
+          "description": "Inpatient hospital care, skilled nursing facility care, hospice care"
+        },
+        {
+          "name": "Part B - Medical Insurance",
+          "amount": 269000000000,
+          "percentage": 34.98,
+          "description": "Doctor visits, outpatient care, medical supplies, preventive services"
+        },
+        {
+          "name": "Part D - Prescription Drug Coverage",
+          "amount": 118000000000,
+          "percentage": 15.34,
+          "description": "Prescription drug coverage for Medicare beneficiaries"
+        },
+        {
+          "name": "Part C - Medicare Advantage",
+          "amount": 74000000000,
+          "percentage": 9.62,
+          "description": "Private health plan option including Parts A, B, and usually D"
+        }
+      ]
+    },
+    {
+      "id": "defense",
+      "name": "National Defense",
+      "amount": 714000000000,
+      "percentage": 10.90,
+      "color": "#2C3E50",
+      "icon": "🛡️",
+      "description": "Department of Defense military operations, personnel, equipment, and R&D",
+      "source": "[1][6]",
+      "subcategories": [
+        {
+          "name": "Military Personnel",
+          "amount": 151000000000,
+          "percentage": 21.15,
+          "description": "Pay, allowances, and benefits for active duty, reserve, and National Guard"
+        },
+        {
+          "name": "Operations & Maintenance",
+          "amount": 262000000000,
+          "percentage": 36.69,
+          "description": "Training, base operations, equipment maintenance, logistics"
+        },
+        {
+          "name": "Procurement",
+          "amount": 143000000000,
+          "percentage": 20.03,
+          "description": "Aircraft, ships, vehicles, weapons systems, and ammunition"
+        },
+        {
+          "name": "Research & Development",
+          "amount": 115000000000,
+          "percentage": 16.11,
+          "description": "Defense technology development and military R&D programs"
+        },
+        {
+          "name": "Military Construction & Family Housing",
+          "amount": 26000000000,
+          "percentage": 3.64,
+          "description": "Base construction, facility improvements, military family housing"
+        },
+        {
+          "name": "Other Defense Activities",
+          "amount": 17000000000,
+          "percentage": 2.38,
+          "description": "Defense-wide activities, intelligence, special operations support"
+        }
+      ]
+    },
+    {
+      "id": "interest",
+      "name": "Interest on National Debt",
+      "amount": 393000000000,
+      "percentage": 6.00,
+      "color": "#95A5A6",
+      "icon": "💰",
+      "description": "Interest payments on federal debt - low despite rising debt due to historically low interest rates",
+      "source": "[1][7]",
+      "subcategories": [
+        {
+          "name": "Interest on Public Debt",
+          "amount": 334000000000,
+          "percentage": 85.01,
+          "description": "Interest paid to holders of Treasury securities (bonds, notes, bills)"
+        },
+        {
+          "name": "Interest on Intragovernmental Holdings",
+          "amount": 59000000000,
+          "percentage": 15.01,
+          "description": "Interest on debt held by Social Security, Medicare trust funds, and other government accounts"
+        }
+      ]
+    },
+    {
+      "id": "healthcare-non-medicare",
+      "name": "Healthcare (Non-Medicare)",
+      "amount": 614000000000,
+      "percentage": 9.37,
+      "color": "#E67E22",
+      "icon": "⚕️",
+      "description": "Medicaid, CHIP, ACA subsidies, and other federal health programs - elevated by pandemic",
+      "source": "[1][8]",
+      "subcategories": [
+        {
+          "name": "Medicaid",
+          "amount": 458000000000,
+          "percentage": 74.59,
+          "description": "Healthcare coverage for low-income individuals and families (federal share)"
+        },
+        {
+          "name": "Children's Health Insurance Program (CHIP)",
+          "amount": 53000000000,
+          "percentage": 8.63,
+          "description": "Health coverage for children in families earning too much for Medicaid"
+        },
+        {
+          "name": "ACA Marketplace Subsidies",
+          "amount": 103000000000,
+          "percentage": 16.78,
+          "description": "Premium tax credits and cost-sharing reductions for Affordable Care Act plans"
+        }
+      ]
+    },
+    {
+      "id": "veterans",
+      "name": "Veterans Benefits",
+      "amount": 218000000000,
+      "percentage": 3.33,
+      "color": "#8E44AD",
+      "icon": "🎖️",
+      "description": "Healthcare, disability compensation, pensions, and education for veterans",
+      "source": "[1]",
+      "subcategories": [
+        {
+          "name": "Veterans Health Administration (VHA)",
+          "amount": 128000000000,
+          "percentage": 58.72,
+          "description": "Medical care, mental health services, and hospitals for veterans"
+        },
+        {
+          "name": "Disability Compensation & Pensions",
+          "amount": 64000000000,
+          "percentage": 29.36,
+          "description": "Monthly payments to veterans with service-connected disabilities"
+        },
+        {
+          "name": "GI Bill & Education Benefits",
+          "amount": 13000000000,
+          "percentage": 5.96,
+          "description": "Tuition assistance, housing allowances, and vocational training"
+        },
+        {
+          "name": "Burial Benefits & Memorial Services",
+          "amount": 4000000000,
+          "percentage": 1.83,
+          "description": "National cemeteries, burial allowances, and memorial benefits"
+        },
+        {
+          "name": "Veterans Housing & Other Benefits",
+          "amount": 9000000000,
+          "percentage": 4.13,
+          "description": "Home loan guarantees, vocational rehabilitation, and other services"
+        }
+      ]
+    },
+    {
+      "id": "income-security",
+      "name": "Income Security",
+      "amount": 1445000000000,
+      "percentage": 22.05,
+      "color": "#27AE60",
+      "icon": "🏠",
+      "description": "SNAP, housing assistance, massive unemployment benefits, EITC, child tax credits, and CARES Act pandemic relief",
+      "source": "[1][9]",
+      "subcategories": [
+        {
+          "name": "Earned Income Tax Credit (EITC)",
+          "amount": 75000000000,
+          "percentage": 5.19,
+          "description": "Refundable tax credit for low and moderate-income working families"
+        },
+        {
+          "name": "Child Tax Credit (CTC)",
+          "amount": 68000000000,
+          "percentage": 4.71,
+          "description": "Tax credit to help families with child-rearing expenses"
+        },
+        {
+          "name": "Supplemental Nutrition Assistance Program (SNAP)",
+          "amount": 92000000000,
+          "percentage": 6.37,
+          "description": "Food assistance for 40 million low-income Americans"
+        },
+        {
+          "name": "Housing Assistance",
+          "amount": 63000000000,
+          "percentage": 4.36,
+          "description": "Section 8 vouchers, public housing, rental assistance programs"
+        },
+        {
+          "name": "Unemployment Insurance",
+          "amount": 505000000000,
+          "percentage": 34.95,
+          "description": "CARES Act unemployment programs - FPUC, PUA, PEUC, and state UI benefits"
+        },
+        {
+          "name": "Economic Impact Payments (Stimulus Checks)",
+          "amount": 271000000000,
+          "percentage": 18.76,
+          "description": "CARES Act stimulus checks - first and second rounds"
+        },
+        {
+          "name": "Paycheck Protection Program",
+          "amount": 233000000000,
+          "percentage": 16.12,
+          "description": "Forgivable small business loans to maintain payroll during pandemic"
+        },
+        {
+          "name": "School Nutrition Programs",
+          "amount": 24000000000,
+          "percentage": 1.66,
+          "description": "Free and reduced-price school meals, pandemic EBT for children"
+        },
+        {
+          "name": "Temporary Assistance for Needy Families (TANF)",
+          "amount": 17000000000,
+          "percentage": 1.18,
+          "description": "Cash assistance and support services for low-income families with children"
+        },
+        {
+          "name": "Child Care & Development Block Grant",
+          "amount": 13000000000,
+          "percentage": 0.90,
+          "description": "Subsidized child care for low-income working families"
+        },
+        {
+          "name": "WIC (Women, Infants, and Children)",
+          "amount": 7000000000,
+          "percentage": 0.48,
+          "description": "Nutrition assistance for pregnant women, new mothers, and young children"
+        },
+        {
+          "name": "Energy Assistance & Other Programs",
+          "amount": 77000000000,
+          "percentage": 5.33,
+          "description": "Coronavirus Relief Fund, LIHEAP, foster care, adoption assistance"
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "amount": 262000000000,
+      "percentage": 4.00,
+      "color": "#3498DB",
+      "icon": "📚",
+      "description": "Federal student aid, K-12 support, special education, and initial pandemic education relief",
+      "source": "[1][10]",
+      "subcategories": [
+        {
+          "name": "Federal Student Loans & Pell Grants",
+          "amount": 145000000000,
+          "percentage": 55.34,
+          "description": "Student loan programs, Pell Grants for low-income college students"
+        },
+        {
+          "name": "Elementary and Secondary School Emergency Relief (ESSER)",
+          "amount": 54000000000,
+          "percentage": 20.61,
+          "description": "CARES Act emergency funding for K-12 schools to address COVID-19"
+        },
+        {
+          "name": "Title I - Low-Income School Support",
+          "amount": 30000000000,
+          "percentage": 11.45,
+          "description": "Federal aid to schools serving high percentages of low-income students"
+        },
+        {
+          "name": "Special Education (IDEA)",
+          "amount": 22000000000,
+          "percentage": 8.40,
+          "description": "Individuals with Disabilities Education Act funding for special needs students"
+        },
+        {
+          "name": "Head Start",
+          "amount": 10000000000,
+          "percentage": 3.82,
+          "description": "Early childhood education for low-income preschoolers"
+        },
+        {
+          "name": "Career & Technical Education",
+          "amount": 1000000000,
+          "percentage": 0.38,
+          "description": "Vocational training, workforce development, community college programs"
+        }
+      ]
+    },
+    {
+      "id": "transportation",
+      "name": "Transportation",
+      "amount": 94000000000,
+      "percentage": 1.43,
+      "color": "#F39C12",
+      "icon": "🚗",
+      "description": "Highways, bridges, public transit, airports, and transportation infrastructure",
+      "source": "[1][11]",
+      "subcategories": [
+        {
+          "name": "Federal Highway Administration",
+          "amount": 53000000000,
+          "percentage": 56.38,
+          "description": "Interstate highways, bridges, road safety programs, highway grants to states"
+        },
+        {
+          "name": "Federal Aviation Administration",
+          "amount": 17000000000,
+          "percentage": 18.09,
+          "description": "Air traffic control, airport improvements, aviation safety regulation"
+        },
+        {
+          "name": "Federal Transit Administration",
+          "amount": 12000000000,
+          "percentage": 12.77,
+          "description": "Subway systems, buses, light rail, transit infrastructure grants"
+        },
+        {
+          "name": "Federal Railroad Administration",
+          "amount": 5000000000,
+          "percentage": 5.32,
+          "description": "Amtrak subsidies, rail safety, high-speed rail development"
+        },
+        {
+          "name": "Maritime Administration & Ports",
+          "amount": 3000000000,
+          "percentage": 3.19,
+          "description": "Port infrastructure, maritime security, shipping programs"
+        },
+        {
+          "name": "Transportation Safety & Other Programs",
+          "amount": 4000000000,
+          "percentage": 4.26,
+          "description": "Pipeline safety, hazmat transport, transportation research"
+        }
+      ]
+    },
+    {
+      "id": "everything-else",
+      "name": "Everything Else",
+      "amount": 947000000000,
+      "percentage": 14.45,
+      "color": "#BDC3C7",
+      "icon": "🏛️",
+      "description": "All other federal government operations and programs including extensive pandemic response",
+      "source": "[1][12]",
+      "subcategories": [
+        {
+          "name": "Agriculture & Rural Development",
+          "amount": 88000000000,
+          "percentage": 9.29,
+          "description": "Farm subsidies, crop insurance, food safety, rural infrastructure"
+        },
+        {
+          "name": "Small Business Administration & PPP",
+          "amount": 344000000000,
+          "percentage": 36.33,
+          "description": "Paycheck Protection Program, EIDL, small business COVID relief"
+        },
+        {
+          "name": "Public Health & COVID Response",
+          "amount": 125000000000,
+          "percentage": 13.20,
+          "description": "CDC, NIH, vaccine development, testing, contact tracing, medical supplies"
+        },
+        {
+          "name": "International Affairs & Foreign Aid",
+          "amount": 62000000000,
+          "percentage": 6.55,
+          "description": "State Department, USAID, embassies, humanitarian assistance, diplomacy"
+        },
+        {
+          "name": "Science, Space & Technology",
+          "amount": 46000000000,
+          "percentage": 4.86,
+          "description": "NASA ($22B), National Science Foundation, NOAA, energy research"
+        },
+        {
+          "name": "Justice & Law Enforcement",
+          "amount": 45000000000,
+          "percentage": 4.75,
+          "description": "FBI, federal prisons, courts, DEA, ATF, U.S. Marshals, legal services"
+        },
+        {
+          "name": "Environment & Natural Resources",
+          "amount": 43000000000,
+          "percentage": 4.54,
+          "description": "EPA, National Park Service, Fish & Wildlife, Forest Service, BLM"
+        },
+        {
+          "name": "General Government Operations",
+          "amount": 40000000000,
+          "percentage": 4.22,
+          "description": "IRS, Treasury, GSA, OPM, executive offices, federal buildings"
+        },
+        {
+          "name": "Community & Regional Development",
+          "amount": 50000000000,
+          "percentage": 5.28,
+          "description": "Economic development grants, disaster relief, community development programs"
+        },
+        {
+          "name": "Energy & Utilities",
+          "amount": 33000000000,
+          "percentage": 3.48,
+          "description": "Department of Energy, nuclear weapons maintenance, energy grid, renewables"
+        },
+        {
+          "name": "Commerce & Economic Development",
+          "amount": 38000000000,
+          "percentage": 4.01,
+          "description": "Small Business Administration, Census Bureau, trade promotion, patents"
+        },
+        {
+          "name": "Labor Programs",
+          "amount": 18000000000,
+          "percentage": 1.90,
+          "description": "Job training, worker protection, OSHA, wage enforcement, labor statistics"
+        },
+        {
+          "name": "Immigration & Border Security",
+          "amount": 14000000000,
+          "percentage": 1.48,
+          "description": "Customs & Border Protection, ICE, immigration courts, border facilities"
+        },
+        {
+          "name": "Indian Affairs & Tribal Programs",
+          "amount": 4000000000,
+          "percentage": 0.42,
+          "description": "Bureau of Indian Affairs, tribal health, education, and economic development"
+        },
+        {
+          "name": "Arts, Culture & Humanities",
+          "amount": 2000000000,
+          "percentage": 0.21,
+          "description": "NEA, NEH, Corporation for Public Broadcasting, museums, libraries"
+        },
+        {
+          "name": "Other Federal Programs",
+          "amount": -5000000000,
+          "percentage": -0.53,
+          "description": "Offsetting receipts and other miscellaneous programs"
+        }
+      ]
+    }
+  ]
+}
