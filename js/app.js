@@ -101,6 +101,12 @@ const TaxApp = {
             loadSavedBtn.addEventListener('click', () => this.loadFromSaved());
         }
 
+        // Load sample PDF button
+        const loadSampleBtn = document.getElementById('loadSampleBtn');
+        if (loadSampleBtn) {
+            loadSampleBtn.addEventListener('click', () => this.loadSamplePDF());
+        }
+
         // Export buttons
         const exportJSONBtn = document.getElementById('exportJSONBtn');
         if (exportJSONBtn) {
@@ -545,6 +551,42 @@ const TaxApp = {
         this.renderResults();
 
         this.showMessage('Loaded previous session data', 'success');
+    },
+
+    /**
+     * Load sample PDF for testing
+     */
+    async loadSamplePDF() {
+        try {
+            // Show loading modal
+            this.showLoadingModal('Loading sample Form 1040...');
+
+            // Fetch the sample PDF
+            const response = await fetch('/samples/sample-1040-scenario-2.pdf');
+
+            if (!response.ok) {
+                throw new Error('Failed to load sample PDF. Please try uploading your own Form 1040.');
+            }
+
+            // Convert response to blob
+            const blob = await response.blob();
+
+            // Create a File object from the blob
+            const file = new File([blob], 'sample-1040-scenario-2.pdf', {
+                type: 'application/pdf',
+                lastModified: Date.now()
+            });
+
+            // Hide loading modal
+            this.hideLoadingModal();
+
+            // Process the file using existing logic
+            await this.processFile(file);
+
+        } catch (error) {
+            this.hideLoadingModal();
+            this.showMessage(error.message || 'Failed to load sample PDF', 'error');
+        }
     },
 
     /**
