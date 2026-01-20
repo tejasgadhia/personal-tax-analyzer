@@ -561,8 +561,8 @@ const TaxApp = {
             // Show loading modal
             this.showLoadingModal('Loading sample Form 1040...');
 
-            // Fetch the sample PDF
-            const response = await fetch('/samples/sample-1040-scenario-2.pdf');
+            // Fetch the sample PDF (use relative path for GitHub Pages compatibility)
+            const response = await fetch('./samples/sample-1040-scenario-2.pdf');
 
             if (!response.ok) {
                 throw new Error('Failed to load sample PDF. Please try uploading your own Form 1040.');
