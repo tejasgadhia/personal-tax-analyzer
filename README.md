@@ -2,7 +2,7 @@
 
 > **Visualize where your federal tax dollars go.** Upload your Form 1040 and see an interactive breakdown of government spending based on your personal tax contribution.
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)
+![Version](https://img.shields.io/badge/version-0.1.1-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Privacy](https://img.shields.io/badge/privacy-100%25%20local-brightgreen.svg)
 
@@ -55,6 +55,17 @@ npx serve
 
 **Not supported**: Form 1040-X (Amended Returns)
 
+## 🧪 Testing with Sample Data
+
+Want to try the application before uploading your own tax return? Use the provided sample Form 1040:
+
+1. **Download the sample**: Navigate to the `samples/` directory
+2. **Use the IRS test scenario**: `sample-1040-scenario-2.pdf` (official IRS MeF ATS test data)
+3. **Upload to the app**: Drag and drop or browse to select the file
+4. **Explore**: See how the parser extracts data and visualizes the breakdown
+
+The sample file is an official IRS test document used by e-file software developers and contains no real personal information. See [samples/README.md](samples/README.md) for more details.
+
 ## 🛠️ Technology Stack
 
 ### Frontend
@@ -103,6 +114,9 @@ personal-tax-analyzer/
 │       ├── budget-2022.json
 │       ├── budget-2023.json
 │       └── budget-2024.json
+├── samples/
+│   ├── README.md           # Sample file documentation
+│   └── sample-1040-scenario-2.pdf  # IRS test scenario
 └── assets/
     └── images/
         └── logo.svg        # Application logo
