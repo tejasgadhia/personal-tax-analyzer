@@ -1,0 +1,425 @@
+{
+  "year": 2019,
+  "totalBudget": 4447000000000,
+  "allocations": [
+    {
+      "name": "Social Security",
+      "percentage": 0.2352,
+      "description": "Retirement, disability, and survivors benefits for 68 million Americans",
+      "color": "#4A90E2",
+      "subcategories": [
+        {
+          "name": "Retirement Benefits (OASI)",
+          "percentage": 0.7866,
+          "description": "Monthly benefits for 48 million retired workers and their dependents"
+        },
+        {
+          "name": "Survivors Benefits",
+          "percentage": 0.1099,
+          "description": "Benefits for 6 million survivors of deceased workers"
+        },
+        {
+          "name": "Disability Insurance (SSDI)",
+          "percentage": 0.087,
+          "description": "Benefits for 8.5 million disabled workers and their dependents"
+        },
+        {
+          "name": "Supplemental Security Income (SSI)",
+          "percentage": 0.0163,
+          "description": "Income assistance for low-income elderly and disabled individuals"
+        }
+      ]
+    },
+    {
+      "name": "Medicare",
+      "percentage": 0.1464,
+      "description": "Health insurance for 61 million Americans 65+ and certain younger people with disabilities",
+      "color": "#E24A4A",
+      "subcategories": [
+        {
+          "name": "Part A - Hospital Insurance",
+          "percentage": 0.40090000000000003,
+          "description": "Inpatient hospital care, skilled nursing facility care, hospice care"
+        },
+        {
+          "name": "Part B - Medical Insurance",
+          "percentage": 0.3502,
+          "description": "Doctor visits, outpatient care, medical supplies, preventive services"
+        },
+        {
+          "name": "Part D - Prescription Drug Coverage",
+          "percentage": 0.1536,
+          "description": "Prescription drug coverage for Medicare beneficiaries"
+        },
+        {
+          "name": "Part C - Medicare Advantage",
+          "percentage": 0.09519999999999999,
+          "description": "Private health plan option including Parts A, B, and usually D"
+        }
+      ]
+    },
+    {
+      "name": "National Defense",
+      "percentage": 0.1543,
+      "description": "Department of Defense military operations, personnel, equipment, and R&D",
+      "color": "#2C3E50",
+      "subcategories": [
+        {
+          "name": "Military Personnel",
+          "percentage": 0.2114,
+          "description": "Pay, allowances, and benefits for active duty, reserve, and National Guard"
+        },
+        {
+          "name": "Operations & Maintenance",
+          "percentage": 0.36729999999999996,
+          "description": "Training, base operations, equipment maintenance, logistics"
+        },
+        {
+          "name": "Procurement",
+          "percentage": 0.1997,
+          "description": "Aircraft, ships, vehicles, weapons systems, and ammunition"
+        },
+        {
+          "name": "Research & Development",
+          "percentage": 0.1603,
+          "description": "Defense technology development and military R&D programs"
+        },
+        {
+          "name": "Military Construction & Family Housing",
+          "percentage": 0.0364,
+          "description": "Base construction, facility improvements, military family housing"
+        },
+        {
+          "name": "Other Defense Activities",
+          "percentage": 0.0248,
+          "description": "Defense-wide activities, intelligence, special operations support"
+        }
+      ]
+    },
+    {
+      "name": "Interest on National Debt",
+      "percentage": 0.0843,
+      "description": "Interest payments on federal debt - growing category as debt accumulates",
+      "color": "#95A5A6",
+      "subcategories": [
+        {
+          "name": "Interest on Public Debt",
+          "percentage": 0.8506999999999999,
+          "description": "Interest paid to holders of Treasury securities (bonds, notes, bills)"
+        },
+        {
+          "name": "Interest on Intragovernmental Holdings",
+          "percentage": 0.1493,
+          "description": "Interest on debt held by Social Security, Medicare trust funds, and other government accounts"
+        }
+      ]
+    },
+    {
+      "name": "Healthcare (Non-Medicare)",
+      "percentage": 0.094,
+      "description": "Medicaid, CHIP, ACA subsidies, and other federal health programs",
+      "color": "#E67E22",
+      "subcategories": [
+        {
+          "name": "Medicaid",
+          "percentage": 0.7440000000000001,
+          "description": "Healthcare coverage for low-income individuals and families (federal share)"
+        },
+        {
+          "name": "Children's Health Insurance Program (CHIP)",
+          "percentage": 0.0861,
+          "description": "Health coverage for children in families earning too much for Medicaid"
+        },
+        {
+          "name": "ACA Marketplace Subsidies",
+          "percentage": 0.1699,
+          "description": "Premium tax credits and cost-sharing reductions for Affordable Care Act plans"
+        }
+      ]
+    },
+    {
+      "name": "Veterans Benefits",
+      "percentage": 0.045,
+      "description": "Healthcare, disability compensation, pensions, and education for veterans",
+      "color": "#8E44AD",
+      "subcategories": [
+        {
+          "name": "Veterans Health Administration (VHA)",
+          "percentage": 0.59,
+          "description": "Medical care, mental health services, and hospitals for veterans"
+        },
+        {
+          "name": "Disability Compensation & Pensions",
+          "percentage": 0.295,
+          "description": "Monthly payments to veterans with service-connected disabilities"
+        },
+        {
+          "name": "GI Bill & Education Benefits",
+          "percentage": 0.06,
+          "description": "Tuition assistance, housing allowances, and vocational training"
+        },
+        {
+          "name": "Burial Benefits & Memorial Services",
+          "percentage": 0.015,
+          "description": "National cemeteries, burial allowances, and memorial benefits"
+        },
+        {
+          "name": "Veterans Housing & Other Benefits",
+          "percentage": 0.04,
+          "description": "Home loan guarantees, vocational rehabilitation, and other services"
+        }
+      ]
+    },
+    {
+      "name": "Income Security",
+      "percentage": 0.10949999999999999,
+      "description": "SNAP, housing assistance, unemployment benefits, EITC, and family support programs",
+      "color": "#27AE60",
+      "subcategories": [
+        {
+          "name": "Earned Income Tax Credit (EITC)",
+          "percentage": 0.1561,
+          "description": "Refundable tax credit for low and moderate-income working families"
+        },
+        {
+          "name": "Child Tax Credit (CTC)",
+          "percentage": 0.1417,
+          "description": "Tax credit to help families with child-rearing expenses"
+        },
+        {
+          "name": "Supplemental Nutrition Assistance Program (SNAP)",
+          "percentage": 0.1232,
+          "description": "Food assistance for 36 million low-income Americans"
+        },
+        {
+          "name": "Housing Assistance",
+          "percentage": 0.1253,
+          "description": "Section 8 vouchers, public housing, rental assistance programs"
+        },
+        {
+          "name": "Unemployment Insurance",
+          "percentage": 0.059500000000000004,
+          "description": "Temporary income for workers who lose jobs through no fault of their own"
+        },
+        {
+          "name": "School Nutrition Programs",
+          "percentage": 0.0472,
+          "description": "Free and reduced-price school meals, summer feeding programs"
+        },
+        {
+          "name": "Temporary Assistance for Needy Families (TANF)",
+          "percentage": 0.0349,
+          "description": "Cash assistance and support services for low-income families with children"
+        },
+        {
+          "name": "Child Care & Development Block Grant",
+          "percentage": 0.25670000000000004,
+          "description": "Subsidized child care for low-income working families and other income programs"
+        },
+        {
+          "name": "WIC (Women, Infants, and Children)",
+          "percentage": 0.0123,
+          "description": "Nutrition assistance for pregnant women, new mothers, and young children"
+        },
+        {
+          "name": "Energy Assistance & Other Programs",
+          "percentage": 0.0431,
+          "description": "LIHEAP (heating/cooling assistance), foster care, adoption assistance, other support"
+        }
+      ]
+    },
+    {
+      "name": "Education",
+      "percentage": 0.022000000000000002,
+      "description": "Federal student aid, K-12 support, special education, and higher education programs",
+      "color": "#3498DB",
+      "subcategories": [
+        {
+          "name": "Federal Student Loans & Pell Grants",
+          "percentage": 0.5714,
+          "description": "Student loan programs, Pell Grants for low-income college students"
+        },
+        {
+          "name": "Title I - Low-Income School Support",
+          "percentage": 0.16329999999999997,
+          "description": "Federal aid to schools serving high percentages of low-income students"
+        },
+        {
+          "name": "Special Education (IDEA)",
+          "percentage": 0.13269999999999998,
+          "description": "Individuals with Disabilities Education Act funding for special needs students"
+        },
+        {
+          "name": "Head Start",
+          "percentage": 0.102,
+          "description": "Early childhood education for low-income preschoolers"
+        },
+        {
+          "name": "Career & Technical Education",
+          "percentage": 0.0102,
+          "description": "Vocational training, workforce development, community college programs"
+        },
+        {
+          "name": "Impact Aid & School Improvements",
+          "percentage": 0.0204,
+          "description": "Support for schools on federal lands, rural schools, school improvement grants"
+        }
+      ]
+    },
+    {
+      "name": "Transportation",
+      "percentage": 0.0207,
+      "description": "Highways, bridges, public transit, airports, and transportation infrastructure",
+      "color": "#F39C12",
+      "subcategories": [
+        {
+          "name": "Federal Highway Administration",
+          "percentage": 0.5652,
+          "description": "Interstate highways, bridges, road safety programs, highway grants to states"
+        },
+        {
+          "name": "Federal Aviation Administration",
+          "percentage": 0.1848,
+          "description": "Air traffic control, airport improvements, aviation safety regulation"
+        },
+        {
+          "name": "Federal Transit Administration",
+          "percentage": 0.1304,
+          "description": "Subway systems, buses, light rail, transit infrastructure grants"
+        },
+        {
+          "name": "Federal Railroad Administration",
+          "percentage": 0.054299999999999994,
+          "description": "Amtrak subsidies, rail safety, high-speed rail development"
+        },
+        {
+          "name": "Maritime Administration & Ports",
+          "percentage": 0.0326,
+          "description": "Port infrastructure, maritime security, shipping programs"
+        },
+        {
+          "name": "Transportation Safety & Other Programs",
+          "percentage": 0.0326,
+          "description": "Pipeline safety, hazmat transport, transportation research"
+        }
+      ]
+    },
+    {
+      "name": "Everything Else",
+      "percentage": 0.0886,
+      "description": "All other federal government operations and programs",
+      "color": "#BDC3C7",
+      "subcategories": [
+        {
+          "name": "Agriculture & Rural Development",
+          "percentage": 0.1497,
+          "description": "Farm subsidies, crop insurance, food safety, rural infrastructure"
+        },
+        {
+          "name": "International Affairs & Foreign Aid",
+          "percentage": 0.1371,
+          "description": "State Department, USAID, embassies, humanitarian assistance, diplomacy"
+        },
+        {
+          "name": "Science, Space & Technology",
+          "percentage": 0.1091,
+          "description": "NASA ($21B), National Science Foundation, NOAA, energy research"
+        },
+        {
+          "name": "Justice & Law Enforcement",
+          "percentage": 0.1066,
+          "description": "FBI, federal prisons, courts, DEA, ATF, U.S. Marshals, legal services"
+        },
+        {
+          "name": "Environment & Natural Resources",
+          "percentage": 0.1041,
+          "description": "EPA, National Park Service, Fish & Wildlife, Forest Service, BLM"
+        },
+        {
+          "name": "General Government Operations",
+          "percentage": 0.0964,
+          "description": "IRS, Treasury, GSA, OPM, executive offices, federal buildings"
+        },
+        {
+          "name": "Community & Regional Development",
+          "percentage": 0.09390000000000001,
+          "description": "Economic development grants, disaster relief, community development programs"
+        },
+        {
+          "name": "Energy & Utilities",
+          "percentage": 0.0787,
+          "description": "Department of Energy, nuclear weapons maintenance, energy grid, renewables"
+        },
+        {
+          "name": "Commerce & Economic Development",
+          "percentage": 0.0584,
+          "description": "Small Business Administration, Census Bureau, trade promotion, patents"
+        },
+        {
+          "name": "Labor Programs",
+          "percentage": 0.033,
+          "description": "Job training, worker protection, OSHA, wage enforcement, labor statistics"
+        },
+        {
+          "name": "Immigration & Border Security",
+          "percentage": 0.033,
+          "description": "Customs & Border Protection, ICE, immigration courts, border facilities"
+        },
+        {
+          "name": "Indian Affairs & Tribal Programs",
+          "percentage": 0.0076,
+          "description": "Bureau of Indian Affairs, tribal health, education, and economic development"
+        },
+        {
+          "name": "Arts, Culture & Humanities",
+          "percentage": 0.0051,
+          "description": "NEA, NEH, Corporation for Public Broadcasting, museums, libraries"
+        },
+        {
+          "name": "Other Federal Programs",
+          "percentage": -0.0127,
+          "description": "Offsetting receipts and other miscellaneous programs"
+        }
+      ]
+    }
+  ],
+  "nationalAverages": {
+    "averageIncomeTax": 15322,
+    "averageFICA": 5640,
+    "numberOfFilers": 150000000,
+    "percentileData": {
+      "p25": 5000,
+      "p50": 12000,
+      "p75": 25000,
+      "p90": 45000,
+      "p95": 75000,
+      "p99": 150000
+    }
+  },
+  "ficaAllocations": {
+    "socialSecurity": [
+      {
+        "name": "Social Security Trust Fund",
+        "percentage": 0.85,
+        "description": "Funds retirement, disability, and survivor benefits"
+      },
+      {
+        "name": "Administrative Costs",
+        "percentage": 0.15,
+        "description": "SSA administrative expenses"
+      }
+    ],
+    "medicare": [
+      {
+        "name": "Medicare Hospital Insurance",
+        "percentage": 0.9,
+        "description": "Part A hospital insurance payments"
+      },
+      {
+        "name": "Administrative Costs",
+        "percentage": 0.1,
+        "description": "Medicare administrative expenses"
+      }
+    ]
+  }
+}
