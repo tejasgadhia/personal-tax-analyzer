@@ -66,6 +66,8 @@ Want to try the application before uploading your own tax return? Use the provid
 
 The sample file is an official IRS test document used by e-file software developers and contains no real personal information. See [samples/README.md](samples/README.md) for more details.
 
+**For comprehensive testing instructions**, see [TESTING.md](TESTING.md) - includes test cases, expected results, and a complete testing checklist.
+
 ## 🛠️ Technology Stack
 
 ### Frontend
