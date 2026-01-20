@@ -3,210 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Data sources and citations for Personal Tax Analyzer">
+    <meta name="description" content="Data sources and methodology for Personal Tax Analyzer budget data">
     <title>Data Sources - Personal Tax Analyzer</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/patriotic-theme.css">
 </head>
-<body>
-    <div class="content-page">
-        <!-- Header -->
-        <header class="header">
-            <div class="container">
-                <div class="logo-section">
-                    <a href="index.html">
-                        <img src="assets/images/logo.svg" alt="Personal Tax Analyzer" class="logo">
-                    </a>
-                </div>
-                <nav class="nav">
-                    <a href="index.html">Home</a>
-                    <a href="app.html">App</a>
-                    <a href="technical.html">How It Works</a>
-                    <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>
-                </nav>
+<body class="app-layout">
+    <!-- Left Navigation -->
+    <nav class="left-sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/images/logo.svg" alt="Eagle Logo" class="logo-icon">
+            <div class="logo-text">Personal Tax Analyzer</div>
+        </div>
+
+        <div class="sidebar-nav">
+            <a href="index.html" class="sidebar-nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Home</span>
+            </a>
+            <a href="app.html" class="sidebar-nav-item">
+                <span class="nav-icon">📄</span>
+                <span class="nav-text">Upload 1040</span>
+            </a>
+            <a href="sources.html" class="sidebar-nav-item active">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">Data Sources</span>
+            </a>
+            <a href="technical.html" class="sidebar-nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-text">How It Works</span>
+            </a>
+            <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank" class="sidebar-nav-item">
+                <span class="nav-icon">💻</span>
+                <span class="nav-text">GitHub</span>
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-stat">
+                <div class="stat-label">FY 2024 Budget</div>
+                <div class="stat-value">$6.8T</div>
             </div>
-        </header>
+            <div class="sidebar-stat">
+                <div class="stat-label">Years Available</div>
+                <div class="stat-value">2019-2024</div>
+            </div>
 
-        <!-- Content -->
-        <main class="main-content">
-            <div class="container narrow">
-                <h1>Data Sources & Citations</h1>
-                <p class="intro">All data used in this application comes from official U.S. government sources. Below are detailed citations for transparency and verification.</p>
+            <div class="sidebar-privacy">
+                <div class="privacy-icon">🔒</div>
+                <div class="privacy-text">
+                    <strong>100% Private</strong>
+                    <p>All processing in your browser. Zero uploads.</p>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-                <!-- Primary Sources -->
-                <section class="source-section">
-                    <h2>Federal Budget Data</h2>
+    <!-- Main Content Area -->
+    <main class="main-area">
+        <div class="content-wrapper" style="max-width: 900px; margin: 0 auto; padding: var(--spacing-2xl);">
+            <h1 class="page-title" style="color: var(--patriot-blue); margin-bottom: var(--spacing-xl);">Data Sources & Methodology</h1>
 
-                    <div class="citation">
-                        <h3>[1] Congressional Budget Office (CBO)</h3>
-                        <p><strong>Document:</strong> Monthly Budget Review: Summary for Fiscal Year 2024</p>
-                        <p><strong>Published:</strong> November 2024</p>
-                        <p><strong>Link:</strong> <a href="https://www.cbo.gov/publication/60843" target="_blank">www.cbo.gov/publication/60843</a></p>
-                        <p><strong>Data Used:</strong> Total federal outlays ($6.8 trillion), major spending categories, deficit information</p>
-                    </div>
+            <p class="page-intro" style="font-size: var(--font-size-lg); color: var(--text-secondary); margin-bottom: var(--spacing-2xl);">
+                All federal budget data used in Personal Tax Analyzer comes from official U.S. government sources. This page provides complete citations and explains our methodology for allocating tax dollars across spending categories.
+            </p>
 
-                    <div class="citation">
-                        <h3>[2] U.S. Treasury Department - Fiscal Data</h3>
-                        <p><strong>Source:</strong> America's Finance Guide - Federal Spending</p>
-                        <p><strong>Link:</strong> <a href="https://fiscaldata.treasury.gov/americas-finance-guide/federal-spending/" target="_blank">fiscaldata.treasury.gov</a></p>
-                        <p><strong>Data Used:</strong> Federal spending breakdowns, interest on national debt</p>
-                    </div>
+            <!-- Primary Sources Section -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Primary Data Sources</h2>
 
-                    <div class="citation">
-                        <h3>[3] Office of Management and Budget (OMB)</h3>
-                        <p><strong>Document:</strong> Historical Tables, Budget of the United States Government</p>
-                        <p><strong>Link:</strong> <a href="https://www.whitehouse.gov/omb/budget/historical-tables/" target="_blank">whitehouse.gov/omb/budget/historical-tables</a></p>
-                        <p><strong>Link:</strong> <a href="https://www.govinfo.gov/app/details/BUDGET-2024-TAB" target="_blank">govinfo.gov (Official Document)</a></p>
-                        <p><strong>Data Used:</strong> Historical spending trends, budget functions and subfunctions</p>
-                    </div>
-                </section>
+                <div class="source-card" style="background: white; padding: var(--spacing-xl); margin-bottom: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">Office of Management and Budget (OMB)</h3>
+                    <p><strong>Source:</strong> Historical Tables, Budget of the United States Government</p>
+                    <p><strong>URL:</strong> <a href="https://www.whitehouse.gov/omb/budget/historical-tables/" target="_blank" rel="noopener">whitehouse.gov/omb/budget/historical-tables</a></p>
+                    <p><strong>Usage:</strong> Total federal spending, major category allocations, historical budget data (fiscal years 2019-2024)</p>
+                    <p><strong>Tables Used:</strong> Table 3.1 (Outlays by Superfunction and Function), Table 3.2 (Outlays by Function and Subfunction)</p>
+                    <p><strong>Last Accessed:</strong> January 2026</p>
+                </div>
 
-                <!-- Tax Data -->
-                <section class="source-section">
-                    <h2>Tax Statistics</h2>
+                <div class="source-card" style="background: white; padding: var(--spacing-xl); margin-bottom: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">Congressional Budget Office (CBO)</h3>
+                    <p><strong>Source:</strong> Monthly Budget Review, Budget and Economic Outlook</p>
+                    <p><strong>URL:</strong> <a href="https://www.cbo.gov/topics/budget" target="_blank" rel="noopener">cbo.gov/topics/budget</a></p>
+                    <p><strong>Usage:</strong> Detailed spending projections, program-specific allocations, Medicare/Medicaid breakdowns</p>
+                    <p><strong>Publications Used:</strong> Monthly Budget Review (FY2024), The Budget and Economic Outlook (2024-2034)</p>
+                    <p><strong>Last Accessed:</strong> January 2026</p>
+                </div>
 
-                    <div class="citation">
-                        <h3>[4] Tax Foundation</h3>
-                        <p><strong>Report:</strong> Summary of the Latest Federal Income Tax Data, 2024 Update</p>
-                        <p><strong>Link:</strong> <a href="https://taxfoundation.org/data/all/federal/latest-federal-income-tax-data-2024/" target="_blank">taxfoundation.org</a></p>
-                        <p><strong>Data Used:</strong> Average federal income tax paid ($17,766)</p>
-                        <p><strong>Source:</strong> Based on IRS Statistics of Income data</p>
-                    </div>
+                <div class="source-card" style="background: white; padding: var(--spacing-xl); margin-bottom: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">U.S. Department of the Treasury</h3>
+                    <p><strong>Source:</strong> Monthly Treasury Statement, TreasuryDirect.gov</p>
+                    <p><strong>URL:</strong> <a href="https://fiscaldata.treasury.gov/" target="_blank" rel="noopener">fiscaldata.treasury.gov</a></p>
+                    <p><strong>Usage:</strong> Actual outlays by month, debt service costs, trust fund balances</p>
+                    <p><strong>Last Accessed:</strong> January 2026</p>
+                </div>
 
-                    <div class="citation">
-                        <h3>[5] Internal Revenue Service (IRS)</h3>
-                        <p><strong>Topic:</strong> Social Security and Medicare Withholding Rates</p>
-                        <p><strong>Link:</strong> <a href="https://www.irs.gov/taxtopics/tc751" target="_blank">irs.gov/taxtopics/tc751</a></p>
-                        <p><strong>Data Used:</strong> 2024 FICA tax rates (6.2% Social Security + 1.45% Medicare)</p>
-                    </div>
+                <div class="source-card" style="background: white; padding: var(--spacing-xl); margin-bottom: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">Internal Revenue Service (IRS)</h3>
+                    <p><strong>Source:</strong> Statistics of Income (SOI)</p>
+                    <p><strong>URL:</strong> <a href="https://www.irs.gov/statistics" target="_blank" rel="noopener">irs.gov/statistics</a></p>
+                    <p><strong>Usage:</strong> National average tax data, taxpayer distribution percentiles, FICA contribution data</p>
+                    <p><strong>Tables Used:</strong> Individual Income Tax Returns, Tax Stats at a Glance</p>
+                    <p><strong>Last Accessed:</strong> January 2026</p>
+                </div>
 
-                    <div class="citation">
-                        <h3>[6] U.S. Census Bureau</h3>
-                        <p><strong>Report:</strong> Income in the United States: 2024</p>
-                        <p><strong>Published:</strong> September 2025</p>
-                        <p><strong>Link:</strong> <a href="https://www.census.gov/library/publications/2025/demo/p60-286.html" target="_blank">census.gov</a></p>
-                        <p><strong>Data Used:</strong> Median household income ($83,730 in 2024)</p>
-                    </div>
-                </section>
+                <div class="source-card" style="background: white; padding: var(--spacing-xl); margin-bottom: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">USASpending.gov</h3>
+                    <p><strong>Source:</strong> Official open data source of federal spending</p>
+                    <p><strong>URL:</strong> <a href="https://www.usaspending.gov/" target="_blank" rel="noopener">usaspending.gov</a></p>
+                    <p><strong>Usage:</strong> Detailed program-level spending, subcategory verification</p>
+                    <p><strong>Last Accessed:</strong> January 2026</p>
+                </div>
+            </section>
 
-                <!-- Category-Specific Sources -->
-                <section class="source-section">
-                    <h2>Category-Specific Sources</h2>
+            <!-- Methodology Section -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Methodology</h2>
 
-                    <div class="citation">
-                        <h3>[7] Social Security Administration</h3>
-                        <p><strong>Documents:</strong> FY 2024 Congressional Justification, Fast Facts & Figures About Social Security 2024</p>
-                        <p><strong>Links:</strong></p>
-                        <ul>
-                            <li><a href="https://www.ssa.gov/budget/" target="_blank">Budget Documents</a></li>
-                            <li><a href="https://www.ssa.gov/policy/docs/chartbooks/fast_facts/" target="_blank">Fast Facts & Figures</a></li>
-                        </ul>
-                        <p><strong>Data Used:</strong> Social Security spending ($1.5T), beneficiary counts (71.6M total)</p>
-                    </div>
-
-                    <div class="citation">
-                        <h3>[8] Centers for Medicare & Medicaid Services (CMS)</h3>
-                        <p><strong>Source:</strong> National Health Expenditure Data</p>
-                        <p><strong>Link:</strong> <a href="https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data" target="_blank">cms.gov</a></p>
-                        <p><strong>Data Used:</strong> Medicare spending, Medicaid federal share</p>
-                    </div>
-
-                    <div class="citation">
-                        <h3>[9] Department of Defense</h3>
-                        <p><strong>Document:</strong> National Defense Budget Estimates for FY 2024 (Green Book)</p>
-                        <p><strong>Data Used:</strong> Defense spending breakdown by function ($872B total)</p>
-                    </div>
-
-                    <div class="citation">
-                        <h3>[10] Department of Education</h3>
-                        <p><strong>Document:</strong> Fiscal Year 2024 Budget Summary</p>
-                        <p><strong>Link:</strong> <a href="https://www.ed.gov/budget" target="_blank">ed.gov/budget</a></p>
-                        <p><strong>Data Used:</strong> Education outlays ($268B)</p>
-                    </div>
-
-                    <div class="citation">
-                        <h3>[11] Department of Transportation</h3>
-                        <p><strong>Document:</strong> FY 2024 Budget Highlights</p>
-                        <p><strong>Link:</strong> <a href="https://www.transportation.gov/budget" target="_blank">transportation.gov/budget</a></p>
-                        <p><strong>Data Used:</strong> Transportation spending ($107B)</p>
-                    </div>
-
-                    <div class="citation">
-                        <h3>[12] Center on Budget and Policy Priorities</h3>
-                        <p><strong>Report:</strong> Where Do Our Federal Tax Dollars Go?</p>
-                        <p><strong>Link:</strong> <a href="https://www.cbpp.org/research/federal-budget/where-do-our-federal-tax-dollars-go" target="_blank">cbpp.org</a></p>
-                        <p><strong>Data Used:</strong> Income security programs breakdown</p>
-                    </div>
-                </section>
-
-                <!-- Methodology -->
-                <section class="source-section">
-                    <h2>Methodology</h2>
-
-                    <h3>Budget Categories</h3>
-                    <p>Federal spending is organized into 10 major categories for clarity and educational purposes. These align with OMB budget functions but are simplified for public understanding:</p>
-                    <ol>
-                        <li><strong>Social Security</strong> - OASDI + SSI</li>
-                        <li><strong>Medicare</strong> - Federal health insurance for seniors</li>
-                        <li><strong>National Defense</strong> - Department of Defense</li>
-                        <li><strong>Interest on National Debt</strong> - Net interest payments</li>
-                        <li><strong>Healthcare (Non-Medicare)</strong> - Medicaid, CHIP, ACA</li>
-                        <li><strong>Veterans Benefits</strong> - VA healthcare, disability, education</li>
-                        <li><strong>Income Security</strong> - SNAP, housing, unemployment, tax credits</li>
-                        <li><strong>Education</strong> - Federal student aid, K-12 support</li>
-                        <li><strong>Transportation</strong> - Highways, transit, aviation, rail</li>
-                        <li><strong>Everything Else</strong> - All other federal programs</li>
+                <div style="background: var(--bg-light); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">Budget Allocation Process</h3>
+                    <ol style="line-height: 1.8;">
+                        <li><strong>Data Collection:</strong> We gather official spending data from OMB Historical Tables (Table 3.2) for each fiscal year.</li>
+                        <li><strong>Category Mapping:</strong> Federal functions are mapped to 10 major categories (Social Security, Medicare, Defense, etc.).</li>
+                        <li><strong>Percentage Calculation:</strong> Each category's percentage is calculated as its outlays divided by total federal outlays.</li>
+                        <li><strong>Subcategory Breakdown:</strong> Major categories are further divided into subcategories using CBO and agency-specific data.</li>
+                        <li><strong>Quality Control:</strong> All percentages are verified to sum to 100% (accounting for rounding).</li>
                     </ol>
-
-                    <h3>Subcategory Allocation</h3>
-                    <p>Subcategory dollar amounts are based on:</p>
-                    <ul>
-                        <li>Official agency budget documents where available</li>
-                        <li>Pro-rata allocation based on historical spending patterns</li>
-                        <li>CBO and OMB projections for FY 2024</li>
-                        <li>Actual outlays reported in FY 2024 year-end financial reports</li>
-                    </ul>
-
-                    <h3>Fiscal Year 2024</h3>
-                    <p>The U.S. federal fiscal year runs from <strong>October 1, 2023 to September 30, 2024</strong>. This data reflects actual outlays (spending) rather than budget authority or appropriations.</p>
-
-                    <h3>Data Verification</h3>
-                    <p>All data can be independently verified through official government sources. Complete citations with direct links are available in the <a href="https://github.com/tejasgadhia/personal-tax-analyzer/blob/main/data/budgets/CITATIONS_2024.md" target="_blank">CITATIONS_2024.md</a> file in our GitHub repository.</p>
-                </section>
-
-                <!-- Accuracy & Limitations -->
-                <section class="source-section">
-                    <h2>Accuracy & Limitations</h2>
-                    <ul>
-                        <li>All percentages rounded to two decimal places and adjusted to sum to exactly 100%</li>
-                        <li>Some subcategory breakdowns are estimates based on historical patterns where exact data is unavailable</li>
-                        <li>Mandatory vs. discretionary spending not separated in this educational tool</li>
-                        <li>Off-budget spending (e.g., Social Security) included in totals</li>
-                        <li>Emergency and supplemental appropriations included where enacted</li>
-                    </ul>
-                </section>
-
-                <!-- Questions -->
-                <section class="source-section">
-                    <h2>Questions or Corrections?</h2>
-                    <p>If you find any errors or have questions about our data sources, please <a href="https://github.com/tejasgadhia/personal-tax-analyzer/issues" target="_blank">open an issue on GitHub</a>.</p>
-                </section>
-
-                <div class="back-link">
-                    <a href="index.html" class="btn-secondary">← Back to Home</a>
                 </div>
-            </div>
-        </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <p>Open source project. No affiliation with any government agency.</p>
-                <p><a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">View on GitHub</a></p>
-            </div>
-        </footer>
-    </div>
+                <div style="background: var(--bg-light); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">Important Notes</h3>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Fiscal Year vs. Tax Year:</strong> Budget data uses federal fiscal years (Oct 1 - Sep 30). We align this with tax years (Jan 1 - Dec 31) that overlap the most.</li>
+                        <li><strong>Estimates vs. Actuals:</strong> For recent years, we use actual outlays. For future years, we use CBO projections.</li>
+                        <li><strong>Off-Budget Items:</strong> Social Security and Medicare trust funds are technically "off-budget" but are included in total federal spending.</li>
+                        <li><strong>Mandatory vs. Discretionary:</strong> All spending types are included (mandatory, discretionary, and interest on debt).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Budget Categories Section -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Budget Category Definitions</h2>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">1. Social Security</h4>
+                    <p style="margin: 0;">Retirement, disability, and survivors benefits. Includes OASI (Old-Age and Survivors Insurance) and SSDI (Social Security Disability Insurance).</p>
+                </div>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">2. Medicare</h4>
+                    <p style="margin: 0;">Health insurance for Americans 65+ and certain younger people with disabilities. Parts A (Hospital), B (Medical), C (Advantage), and D (Prescription).</p>
+                </div>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">3. Defense & Veterans</h4>
+                    <p style="margin: 0;">Department of Defense operations, military personnel, veterans benefits and services, defense research.</p>
+                </div>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">4. Health (Non-Medicare)</h4>
+                    <p style="margin: 0;">Medicaid, CHIP, public health programs, health research (NIH), CDC, FDA.</p>
+                </div>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">5. Interest on Debt</h4>
+                    <p style="margin: 0;">Interest payments on federal debt held by the public and intragovernmental holdings.</p>
+                </div>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">6. Education & Training</h4>
+                    <p style="margin: 0;">K-12 education, higher education, student loans, job training, special education.</p>
+                </div>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">7. Income Security</h4>
+                    <p style="margin: 0;">Unemployment insurance, SNAP (food stamps), TANF (welfare), housing assistance, EITC.</p>
+                </div>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">8. Transportation</h4>
+                    <p style="margin: 0;">Highways, mass transit, airports, railways, maritime, transportation safety.</p>
+                </div>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">9. Government Operations</h4>
+                    <p style="margin: 0;">Federal employee salaries, courts, law enforcement, legislative branch, executive operations.</p>
+                </div>
+
+                <div class="category-definition" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">10. All Other</h4>
+                    <p style="margin: 0;">Agriculture, energy, environment, science, space, international affairs, community development.</p>
+                </div>
+            </section>
+
+            <!-- Disclaimer Section -->
+            <section style="background: var(--bg-light); padding: var(--spacing-xl); border-radius: var(--radius-lg); border-left: 4px solid var(--patriot-red);">
+                <h2 style="color: var(--patriot-red); margin-top: 0;">Important Disclaimer</h2>
+                <p style="line-height: 1.8;">
+                    This tool provides an <strong>approximation</strong> of how federal tax dollars are spent based on overall budget allocations. In reality:
+                </p>
+                <ul style="line-height: 1.8;">
+                    <li>Individual tax payments are not earmarked for specific programs (except Social Security and Medicare payroll taxes)</li>
+                    <li>Federal spending comes from multiple revenue sources (income tax, corporate tax, excise taxes, borrowing)</li>
+                    <li>Budget priorities change annually based on congressional appropriations</li>
+                    <li>Some spending is mandatory (entitlements) while other spending is discretionary</li>
+                </ul>
+                <p style="margin-bottom: 0;"><strong>This tool is for educational purposes only</strong> and should not be used for tax advice, financial planning, or legal purposes.</p>
+            </section>
+
+            <!-- Footer -->
+            <footer style="margin-top: var(--spacing-2xl); padding-top: var(--spacing-xl); border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); font-size: var(--font-size-sm);">
+                <p>Last Updated: January 2026</p>
+                <p>Questions about our data? <a href="https://github.com/tejasgadhia/personal-tax-analyzer/issues" style="color: var(--patriot-blue);">Open an issue on GitHub</a></p>
+            </footer>
+        </div>
+    </main>
 </body>
 </html>

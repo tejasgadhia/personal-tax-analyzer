@@ -10,277 +10,264 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/patriotic-theme.css">
 </head>
-<body>
-    <div class="content-page">
-        <!-- Header -->
-        <header class="header">
-            <div class="container">
-                <div class="logo-section">
-                    <a href="index.html">
-                        <img src="assets/images/logo.svg" alt="Personal Tax Analyzer" class="logo">
-                    </a>
-                </div>
-                <nav class="nav">
-                    <a href="index.html">Home</a>
-                    <a href="app.html">App</a>
-                    <a href="sources.html">Sources</a>
-                    <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>
-                </nav>
+<body class="app-layout">
+    <!-- Left Navigation -->
+    <nav class="left-sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/images/logo.svg" alt="Eagle Logo" class="logo-icon">
+            <div class="logo-text">Personal Tax Analyzer</div>
+        </div>
+
+        <div class="sidebar-nav">
+            <a href="index.html" class="sidebar-nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Home</span>
+            </a>
+            <a href="app.html" class="sidebar-nav-item">
+                <span class="nav-icon">📄</span>
+                <span class="nav-text">Upload 1040</span>
+            </a>
+            <a href="sources.html" class="sidebar-nav-item">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">Data Sources</span>
+            </a>
+            <a href="technical.html" class="sidebar-nav-item active">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-text">How It Works</span>
+            </a>
+            <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank" class="sidebar-nav-item">
+                <span class="nav-icon">💻</span>
+                <span class="nav-text">GitHub</span>
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-stat">
+                <div class="stat-label">FY 2024 Budget</div>
+                <div class="stat-value">$6.8T</div>
             </div>
-        </header>
+            <div class="sidebar-stat">
+                <div class="stat-label">Years Available</div>
+                <div class="stat-value">2019-2024</div>
+            </div>
 
-        <!-- Content -->
-        <main class="main-content">
-            <div class="container narrow">
-                <h1>How It Works</h1>
-                <p class="intro">This application is designed with privacy as the top priority. Everything happens in your browser—no data is ever uploaded to a server.</p>
-
-                <!-- Privacy First -->
-                <section class="tech-section">
-                    <h2>🔒 Privacy & Security</h2>
-
-                    <h3>100% Client-Side Processing</h3>
-                    <p>All PDF parsing, calculations, and visualization happen entirely in your web browser using JavaScript. Your Form 1040 never leaves your device.</p>
-
-                    <h3>No Server Calls</h3>
-                    <p>After the initial page load, this application makes <strong>zero network requests</strong>. You can verify this by:</p>
-                    <ol>
-                        <li>Opening your browser's Developer Tools (F12)</li>
-                        <li>Go to the Network tab</li>
-                        <li>Upload your 1040 and watch—no new requests appear</li>
-                    </ol>
-
-                    <h3>No Tracking or Analytics</h3>
-                    <ul>
-                        <li>No Google Analytics</li>
-                        <li>No Facebook Pixel</li>
-                        <li>No third-party tracking scripts</li>
-                        <li>No cookies (except localStorage if you choose to save data)</li>
-                    </ul>
-
-                    <h3>Open Source</h3>
-                    <p>The complete source code is available on <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>. Anyone can audit the code to verify our privacy claims.</p>
-                </section>
-
-                <!-- How It Works -->
-                <section class="tech-section">
-                    <h2>⚙️ Technical Architecture</h2>
-
-                    <h3>1. PDF Parsing</h3>
-                    <p>We use <strong>PDF.js</strong> (Mozilla's PDF library) to read your Form 1040:</p>
-                    <ul>
-                        <li>Extract text content from the PDF</li>
-                        <li>Identify form type (1040, 1040-SR, 1040-NR, 1040-X)</li>
-                        <li>Extract tax year from the form header</li>
-                        <li>Locate and extract federal income tax from Line 24</li>
-                        <li>Validate the data and handle edge cases</li>
-                    </ul>
-
-                    <h3>2. Tax Calculation</h3>
-                    <p>Once we have your tax amounts:</p>
-                    <ul>
-                        <li>Load the appropriate budget data for your tax year (2019-2024)</li>
-                        <li>Calculate your personal contribution to each spending category</li>
-                        <li>Formula: <code>Your Amount = (Your Tax / Total Budget) × Category Amount</code></li>
-                        <li>Round all amounts to the nearest dollar</li>
-                        <li>Calculate comparisons to national averages</li>
-                    </ul>
-
-                    <h3>3. Interactive Visualization</h3>
-                    <p>We use <strong>D3.js</strong> and the <strong>d3-sankey</strong> plugin to create the flow diagram:</p>
-                    <ul>
-                        <li>Two-tier hierarchy: 10 major categories → 67 subcategories</li>
-                        <li>Click to expand/collapse categories</li>
-                        <li>Hover for tooltips with exact amounts</li>
-                        <li>Smooth 300ms transitions</li>
-                        <li>Color-coded by category</li>
-                    </ul>
-
-                    <h3>4. Data Export</h3>
-                    <p><strong>JSON Export:</strong> Save your breakdown as a JSON file for later use</p>
-                    <p><strong>Image Export:</strong> Uses <strong>html2canvas</strong> to render the visualization as a PNG image with customizable options</p>
-                </section>
-
-                <!-- Technology Stack -->
-                <section class="tech-section">
-                    <h2>🛠️ Technology Stack</h2>
-
-                    <h3>Core Technologies</h3>
-                    <ul>
-                        <li><strong>Vanilla JavaScript</strong> - No frameworks, maximum performance</li>
-                        <li><strong>HTML5 + CSS3</strong> - Modern web standards</li>
-                        <li><strong>GitHub Pages</strong> - Static hosting, no backend</li>
-                    </ul>
-
-                    <h3>JavaScript Libraries</h3>
-                    <ul>
-                        <li><strong>PDF.js 3.11.174</strong> (~600KB) - Mozilla's PDF parser</li>
-                        <li><strong>D3.js v7</strong> (~250KB) - Data visualization</li>
-                        <li><strong>d3-sankey</strong> (~20KB) - Sankey diagram plugin</li>
-                        <li><strong>html2canvas 1.4.1</strong> (~150KB) - Image export</li>
-                    </ul>
-
-                    <h3>Total Bundle Size</h3>
-                    <p>~1.8MB total (libraries + app code + data)</p>
-                </section>
-
-                <!-- Data Storage -->
-                <section class="tech-section">
-                    <h2>💾 Local Data Storage</h2>
-
-                    <h3>How Saving Works</h3>
-                    <p>If you choose to save your data:</p>
-                    <ul>
-                        <li><strong>LocalStorage:</strong> Data stored in your browser's localStorage</li>
-                        <li><strong>What's Saved:</strong> Tax amounts, calculated breakdowns, tax year</li>
-                        <li><strong>What's NOT Saved:</strong> Your actual PDF file</li>
-                        <li><strong>How Long:</strong> Until you clear browser cache or click "Clear Data"</li>
-                    </ul>
-
-                    <h3>Clearing Your Data</h3>
-                    <p>You can clear all saved data at any time:</p>
-                    <ul>
-                        <li>Click the "Clear Data" button in the app</li>
-                        <li>Clear your browser cache/cookies</li>
-                        <li>Use your browser's "Clear browsing data" feature</li>
-                    </ul>
-                </section>
-
-                <!-- Browser Support -->
-                <section class="tech-section">
-                    <h2>🌐 Browser Support</h2>
-
-                    <h3>Supported Browsers</h3>
-                    <ul>
-                        <li><strong>Chrome</strong> 90+ ✅</li>
-                        <li><strong>Firefox</strong> 88+ ✅</li>
-                        <li><strong>Safari</strong> 14+ ✅</li>
-                        <li><strong>Edge</strong> 90+ ✅</li>
-                    </ul>
-
-                    <h3>Requirements</h3>
-                    <ul>
-                        <li><strong>Desktop only:</strong> Minimum 1024px screen width</li>
-                        <li><strong>JavaScript enabled:</strong> Required for all functionality</li>
-                        <li><strong>~2MB free memory:</strong> For processing and visualization</li>
-                    </ul>
-
-                    <p><strong>Note:</strong> Mobile devices are not supported due to the complexity of the visualization and the need for precise interaction.</p>
-                </section>
-
-                <!-- File Structure -->
-                <section class="tech-section">
-                    <h2>📂 Project Structure</h2>
-
-                    <pre><code>personal-tax-analyzer/
-├── index.html              # Landing page
-├── app.html                # Main application
-├── sources.html            # Data sources
-├── technical.html          # This page
-├── /data
-│   └── /budgets
-│       ├── 2019.json       # FY2019 budget
-│       ├── 2020.json       # FY2020 budget
-│       ├── 2021.json       # FY2021 budget
-│       ├── 2022.json       # FY2022 budget
-│       ├── 2023.json       # FY2023 budget
-│       └── 2024.json       # FY2024 budget
-├── /js
-│   ├── /libs
-│   │   ├── pdf.min.js      # PDF parsing
-│   │   ├── d3.v7.min.js    # Visualization
-│   │   ├── d3-sankey.min.js
-│   │   └── html2canvas.min.js
-│   ├── parser.js           # 1040 parsing logic
-│   ├── calculator.js       # Tax calculations
-│   ├── sankey.js           # Visualization
-│   ├── exporter.js         # Export handlers
-│   ├── storage.js          # LocalStorage
-│   └── app.js              # Main controller
-├── /css
-│   ├── style.css           # Global styles
-│   ├── patriotic-theme.css # Theme
-│   └── sankey.css          # Viz styles
-└── /assets
-    └── /images
-        ├── logo.svg
-        └── star-pattern.svg</code></pre>
-                </section>
-
-                <!-- Verification -->
-                <section class="tech-section">
-                    <h2>✅ Verify Our Claims</h2>
-
-                    <h3>Method 1: Browser Developer Tools</h3>
-                    <ol>
-                        <li>Open the app in your browser</li>
-                        <li>Press F12 to open Developer Tools</li>
-                        <li>Go to the "Network" tab</li>
-                        <li>Upload your 1040 and watch—no requests to external servers</li>
-                    </ol>
-
-                    <h3>Method 2: Use a Network Monitor</h3>
-                    <p>Run a network monitoring tool like <a href="https://www.wireshark.org/" target="_blank">Wireshark</a> or <a href="https://www.charlesproxy.com/" target="_blank">Charles Proxy</a> while using the app. You'll see zero outbound requests after the initial page load.</p>
-
-                    <h3>Method 3: Disconnect Your Internet</h3>
-                    <ol>
-                        <li>Load the app page (index.html or app.html)</li>
-                        <li>Wait for the page to fully load</li>
-                        <li>Disconnect from the internet</li>
-                        <li>Upload your 1040—everything still works!</li>
-                    </ol>
-
-                    <h3>Method 4: Review the Source Code</h3>
-                    <p>All source code is available on <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">GitHub</a>. Review it yourself or have a developer you trust audit it.</p>
-                </section>
-
-                <!-- Performance -->
-                <section class="tech-section">
-                    <h2>⚡ Performance</h2>
-
-                    <h3>Target Metrics</h3>
-                    <ul>
-                        <li><strong>First contentful paint:</strong> &lt; 1.5s</li>
-                        <li><strong>Time to interactive:</strong> &lt; 3s</li>
-                        <li><strong>PDF parsing:</strong> &lt; 3s for typical 1040</li>
-                        <li><strong>Calculation:</strong> &lt; 100ms</li>
-                        <li><strong>Visualization render:</strong> &lt; 1s</li>
-                        <li><strong>Expand/collapse animation:</strong> 300ms</li>
-                    </ul>
-
-                    <h3>Optimizations</h3>
-                    <ul>
-                        <li>Lazy load D3.js after PDF upload</li>
-                        <li>Minified JavaScript files</li>
-                        <li>Compressed budget JSON files</li>
-                        <li>Pre-calculated percentages</li>
-                        <li>Debounced hover events</li>
-                    </ul>
-                </section>
-
-                <!-- Questions -->
-                <section class="tech-section">
-                    <h2>❓ Questions?</h2>
-                    <p>Have questions about how this works? Want to report a bug or security issue?</p>
-                    <ul>
-                        <li><a href="https://github.com/tejasgadhia/personal-tax-analyzer/issues" target="_blank">Open an issue on GitHub</a></li>
-                        <li><a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">View the source code</a></li>
-                    </ul>
-                </section>
-
-                <div class="back-link">
-                    <a href="index.html" class="btn-secondary">← Back to Home</a>
+            <div class="sidebar-privacy">
+                <div class="privacy-icon">🔒</div>
+                <div class="privacy-text">
+                    <strong>100% Private</strong>
+                    <p>All processing in your browser. Zero uploads.</p>
                 </div>
             </div>
-        </main>
+        </div>
+    </nav>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <p>Open source project. No affiliation with any government agency.</p>
-                <p><a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank">View on GitHub</a></p>
-            </div>
-        </footer>
-    </div>
+    <!-- Main Content Area -->
+    <main class="main-area">
+        <div class="content-wrapper" style="max-width: 900px; margin: 0 auto; padding: var(--spacing-2xl);">
+            <h1 class="page-title" style="color: var(--patriot-blue); margin-bottom: var(--spacing-xl);">How It Works</h1>
+
+            <p class="page-intro" style="font-size: var(--font-size-lg); color: var(--text-secondary); margin-bottom: var(--spacing-2xl);">
+                Personal Tax Analyzer is a 100% client-side web application that runs entirely in your browser. Your tax information never leaves your device.
+            </p>
+
+            <!-- Technical Overview -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Technical Architecture</h2>
+
+                <div style="background: white; padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">Stack & Technologies</h3>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Frontend:</strong> Pure HTML5, CSS3, and vanilla JavaScript (no frameworks)</li>
+                        <li><strong>PDF Parsing:</strong> PDF.js v3.11.174 by Mozilla</li>
+                        <li><strong>Visualization:</strong> D3.js v7 with D3-Sankey</li>
+                        <li><strong>Hosting:</strong> GitHub Pages (static site hosting)</li>
+                        <li><strong>Storage:</strong> Browser LocalStorage API (optional)</li>
+                    </ul>
+                </div>
+
+                <div style="background: var(--bg-light); padding: var(--spacing-xl); border-radius: var(--radius-lg);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">No Backend. No Servers. No APIs.</h3>
+                    <p style="line-height: 1.8;">
+                        This application is a <strong>static website</strong>. There are no backend servers processing your data. All computation happens in your browser using JavaScript.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Application Flow -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Step-by-Step Process</h2>
+
+                <div class="step-card" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Step 1: PDF Upload</h3>
+                    <p style="margin: 0; line-height: 1.8;">When you drag and drop or select your Form 1040 PDF, the file is loaded into your browser's memory using the HTML5 File API. The file <strong>never leaves your device</strong>.</p>
+                </div>
+
+                <div class="step-card" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Step 2: PDF Parsing</h3>
+                    <p style="margin: 0; line-height: 1.8;">Mozilla's PDF.js library (running in your browser) extracts text from the first 3 pages of your PDF. The parser identifies your tax year and locates Line 24 (Total Tax) using pattern matching.</p>
+                </div>
+
+                <div class="step-card" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Step 3: Budget Data Loading</h3>
+                    <p style="margin: 0; line-height: 1.8;">Based on your tax year, the app loads the corresponding budget JSON file (e.g., budget-2024.json) from the /data/budgets/ directory. This file contains federal spending allocations.</p>
+                </div>
+
+                <div class="step-card" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Step 4: Calculation</h3>
+                    <p style="margin: 0; line-height: 1.8;">Your tax amount is multiplied by each budget category's percentage. For example, if you paid $10,000 and Social Security is 22%, you contributed $2,200 to Social Security. All calculations happen in JavaScript.</p>
+                </div>
+
+                <div class="step-card" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Step 5: Visualization</h3>
+                    <p style="margin: 0; line-height: 1.8;">D3.js generates an interactive Sankey diagram showing the flow from "Your Taxes" through 10 major categories to 67 subcategories. You can zoom, pan, and click for details.</p>
+                </div>
+
+                <div class="step-card" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 4px solid var(--patriot-blue);">
+                    <h3 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Step 6: LocalStorage (Optional)</h3>
+                    <p style="margin: 0; line-height: 1.8;">If you want to save your results for later, the app stores your calculated data in your browser's LocalStorage. This data stays on your device and can be cleared anytime.</p>
+                </div>
+            </section>
+
+            <!-- Privacy & Security -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Privacy & Security</h2>
+
+                <div style="background: var(--bg-light); padding: var(--spacing-xl); border-radius: var(--radius-lg); border-left: 4px solid #28a745; margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: #28a745; margin-top: 0;">✅ What We DO</h3>
+                    <ul style="line-height: 1.8;">
+                        <li>Process your PDF entirely in your browser using JavaScript</li>
+                        <li>Load budget data files from a static JSON directory</li>
+                        <li>Use LocalStorage to save your results on your device (optional)</li>
+                        <li>Make everything open source for public audit</li>
+                        <li>Host as a static site on GitHub Pages</li>
+                    </ul>
+                </div>
+
+                <div style="background: var(--bg-light); padding: var(--spacing-xl); border-radius: var(--radius-lg); border-left: 4px solid #dc3545;">
+                    <h3 style="color: #dc3545; margin-top: 0;">❌ What We DON'T DO</h3>
+                    <ul style="line-height: 1.8;">
+                        <li>Upload your PDF to any server</li>
+                        <li>Transmit your tax information over the internet</li>
+                        <li>Store your data in a database</li>
+                        <li>Track, log, or analyze user behavior</li>
+                        <li>Use cookies, analytics, or advertising</li>
+                        <li>Require user accounts or authentication</li>
+                        <li>Make any external API calls (except to load CDN libraries)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Code Quality -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Code Quality & Testing</h2>
+
+                <div style="background: white; padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <h3 style="color: var(--patriot-blue); margin-top: 0;">Production-Ready Standards</h3>
+                    <p style="line-height: 1.8;">All code has been reviewed and optimized for production use:</p>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Error Handling:</strong> Comprehensive try-catch blocks with user-friendly error messages</li>
+                        <li><strong>Input Validation:</strong> Strict file type checking, bounds validation on all numeric inputs</li>
+                        <li><strong>Rounding Accuracy:</strong> Special handling to ensure category totals always match (no penny discrepancies)</li>
+                        <li><strong>Memory Management:</strong> Event listeners properly cleaned up, no memory leaks</li>
+                        <li><strong>Storage Quotas:</strong> LocalStorage quota exceeded errors handled gracefully</li>
+                        <li><strong>Security:</strong> No eval(), no unsafe code execution, XSS prevention</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><a href="https://github.com/tejasgadhia/personal-tax-analyzer/blob/main/TEST_RESULTS.md" target="_blank" style="color: var(--patriot-blue);">View complete test results →</a></p>
+                </div>
+            </section>
+
+            <!-- Browser Compatibility -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Browser Compatibility</h2>
+
+                <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: var(--shadow-md); border-radius: var(--radius-md); overflow: hidden;">
+                    <thead style="background: var(--patriot-blue); color: white;">
+                        <tr>
+                            <th style="padding: var(--spacing-md); text-align: left;">Browser</th>
+                            <th style="padding: var(--spacing-md); text-align: left;">Minimum Version</th>
+                            <th style="padding: var(--spacing-md); text-align: left;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: var(--spacing-md);">Chrome</td>
+                            <td style="padding: var(--spacing-md);">90+</td>
+                            <td style="padding: var(--spacing-md); color: #28a745;">✓ Tested</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: var(--spacing-md);">Firefox</td>
+                            <td style="padding: var(--spacing-md);">88+</td>
+                            <td style="padding: var(--spacing-md); color: #28a745;">✓ Tested</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: var(--spacing-md);">Safari</td>
+                            <td style="padding: var(--spacing-md);">14+</td>
+                            <td style="padding: var(--spacing-md); color: #28a745;">✓ Tested</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: var(--spacing-md);">Edge</td>
+                            <td style="padding: var(--spacing-md);">90+</td>
+                            <td style="padding: var(--spacing-md); color: #28a745;">✓ Tested</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: var(--bg-light); border-radius: var(--radius-md);"><strong>Note:</strong> Mobile devices are not currently supported due to visualization complexity. Minimum screen width: 1024px.</p>
+            </section>
+
+            <!-- Open Source -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Open Source & Transparency</h2>
+
+                <div style="background: white; padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <p style="line-height: 1.8;">
+                        The complete source code is available on GitHub for public inspection, verification, and contribution. You can audit every line of code to verify our privacy claims.
+                    </p>
+                    <p style="line-height: 1.8;">
+                        <strong>Repository:</strong> <a href="https://github.com/tejasgadhia/personal-tax-analyzer" target="_blank" style="color: var(--patriot-blue);">github.com/tejasgadhia/personal-tax-analyzer</a>
+                    </p>
+                    <p style="line-height: 1.8; margin-bottom: 0;">
+                        <strong>License:</strong> MIT License (free and open source)
+                    </p>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section style="margin-bottom: var(--spacing-2xl);">
+                <h2 style="color: var(--patriot-blue); border-bottom: 3px solid var(--patriot-red); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg);">Frequently Asked Questions</h2>
+
+                <div class="faq-item" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Can you see my tax return?</h4>
+                    <p style="margin: 0; line-height: 1.8;">No. Your PDF is processed entirely in your browser. We have no servers to receive or store your data. It's technically impossible for us to see your tax return.</p>
+                </div>
+
+                <div class="faq-item" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Is my data encrypted?</h4>
+                    <p style="margin: 0; line-height: 1.8;">Your data never leaves your device, so encryption during transmission is not applicable. When saved to LocalStorage, data is stored in your browser's secure storage (same security as browser cookies).</p>
+                </div>
+
+                <div class="faq-item" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">How accurate are the budget allocations?</h4>
+                    <p style="margin: 0; line-height: 1.8;">Budget percentages come from official OMB, CBO, and Treasury data. Calculations are mathematically precise. However, this is an educational approximation—real tax allocation is more complex. See our <a href="sources.html" style="color: var(--patriot-blue);">data sources page</a> for details.</p>
+                </div>
+
+                <div class="faq-item" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Can I use this for tax filing?</h4>
+                    <p style="margin: 0; line-height: 1.8;">No. This tool is for educational purposes only. It visualizes budget spending, not tax deductions or credits. Consult a tax professional for tax advice.</p>
+                </div>
+
+                <div class="faq-item" style="background: white; padding: var(--spacing-lg); margin-bottom: var(--spacing-md); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                    <h4 style="color: var(--patriot-blue); margin: 0 0 var(--spacing-sm) 0;">Why desktop only?</h4>
+                    <p style="margin: 0; line-height: 1.8;">The Sankey diagram visualization requires substantial screen real estate to be readable and interactive. Mobile support is planned for v0.2.0.</p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer style="margin-top: var(--spacing-2xl); padding-top: var(--spacing-xl); border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); font-size: var(--font-size-sm);">
+                <p>Last Updated: January 2026 • Version 0.1.1</p>
+                <p>Questions or concerns? <a href="https://github.com/tejasgadhia/personal-tax-analyzer/issues" style="color: var(--patriot-blue);">Open an issue on GitHub</a></p>
+            </footer>
+        </div>
+    </main>
 </body>
 </html>
